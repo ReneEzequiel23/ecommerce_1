@@ -1,0 +1,50 @@
+div.contenido {
+  display: flex;
+
+  background-color: #f7f7f7;
+}
+
+/* Tarjeta del formulario */
+.tarjeta-perfil {
+  padding-left: 40px;
+  width: 600px;
+}
+
+.tarjeta-perfil h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* Acomodo de los inputs y labels */
+.grupo-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.grupo-form label {
+  flex: 1;
+  text-align: left;
+}
+
+.grupo-form input {
+  flex: 2;
+  position: static;
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #888;
+}
+
+/* Botones y enlaces */
+.btn-actualizar {
+  width: 35%;
+  padding: 10px;
+  left: 65%;
+  background-color: #81cbf5;
+  border: 2px solid #3fa9f5;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+  position: relative;
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrador</title>
+    <link rel="stylesheet" href="../css/administrador.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <!-- Inicio de sesion -->
+    <!-- Edgar Arturo Acevedo Acosta 245769
+          Rene Ezequiel Figueroa López 228691 -->
+    <div class="containPP">
+      <div id="containerPg" class="barraSuperior">
+        <nav>
+          <ul>
+            <li>
+              <div class="perfil">
+                <input type="image" src="../Img/perfil.png" alt="Perfil" />
+                <ul>
+                  <li><a href="../pantallas/perfilUsuario.html">Perfil</a></li>
+                  <li><a href="../pantallas/inicioDeSesion.html">Cerrar Sesión</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div id="containerPg" class="menuLateral">
+        <div class="menu">
+          <ul>
+            <li class="page"><a href="../pantallas/index.html">Inicio</a></li>
+            <li class="page">
+              <a href="../pantallas/catalogoProductos.html">Catalogo de Productos</a>
+            </li>
+            <li class="page"><a href="../pantallas/carritoCompras.html">Carrito de Compras</a></li>
+            <li class="page">
+              <a href="../pantallas/gestionDePedidos.html">Gestión de Pedidos</a>
+            </li>
+            <li class="page">
+              <a href="../pantallas/administradorPantalla.html" style="background-color: #999"
+                >Administrador</a
+              >
+            </li>
+            <li class="page"><a href="../pantallas/inicioDeSesion.html">Iniciar Sesión</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="containerPg" class="contenido">
+        <div class="frameOpc">
+          <h2 class="titulo-contenido">Gestionar</h2>
+          <div class="grupo-form">
+            <button
+              onclick="window.location.href = '../pantallas/administrarUsuarios.html'"
+              class="btn-gestion">
+              Administrar Usuarios
+            </button>
+          </div>
+          <div class="grupo-form">
+            <button
+              onclick="window.location.href = '../pantallas/gestionarCatalogoProductos.html'"
+              class="btn-gestion">
+              Catalogo de Productos
+            </button>
+          </div>
+          <div class="grupo-form">
+            <button
+              onclick="window.location.href = '../pantallas/crearProducto.html'"
+              class="btn-gestion">
+              Crear Producto
+            </button>
+          </div>
+          <div class="grupo-form">
+            <button
+              onclick="window.location.href = '../pantallas/editarProducto.html'"
+              class="btn-gestion">
+              Editar Producto
+            </button>
+          </div>
+          <div class="grupo-form">
+            <button
+              onclick="window.location.href = '../pantallas/gestionarPedidos.html'"
+              class="btn-gestion">
+              Pedidos
+            </button>
+          </div>
+          <div class="grupo-form">
+            <button
+              onclick="window.location.href = '../pantallas/gestionarReseñas.html'"
+              class="btn-gestion">
+              Reseñas
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="containerPg" class="piePagina">
+        <h3 class="materia">Aplicaciones Web - Unidad 2</h3>
+      </div>
+    </div>
+  </body>
+</html>

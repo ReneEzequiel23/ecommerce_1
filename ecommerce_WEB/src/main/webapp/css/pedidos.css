@@ -1,0 +1,38 @@
+.area-pedidos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: #f7f7f7;
+}
+
+.caja-pedidos {
+  width: 90%;
+  background-color: white;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+.tabla-pedidos {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tabla-pedidos th, 
+.tabla-pedidos td {
+  border: 1px solid #ddd;
+  padding: 20px;
+  vertical-align: middle;
+}
+
+.seccion-pago {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}

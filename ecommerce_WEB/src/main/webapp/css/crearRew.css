@@ -1,0 +1,83 @@
+div.contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+}
+
+/* Tarjeta del formulario de registro */
+.tarjeta-reseña {
+  background-color: #f7f7f7;
+  border: 2px solid #ddd;
+  padding: 40px;
+  width: 600px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-reseña h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* Acomodo de los inputs y labels */
+.grupo-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.grupo-form label {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+  padding-right: 10px;
+}
+
+div.contenido .tarjeta-reseña input {
+  flex: 1.5;
+  position: static;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #888;
+  font-size: 14px;
+}
+.grupo-form textarea {
+  flex: 1.5;
+  position: static;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  padding: 8px;
+  border: 2px solid #888;
+  font-size: 14px;
+  resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.botones-reseña {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+/* botón Cancelar */
+.btn-cancelar {
+  padding: 10px 25px;
+  background-color: #f47b62;
+  border: 2px solid #c95138;
+  font-size: 18px;
+  cursor: pointer;
+  width: 35%;
+}
+
+/* botón Crear Cuenta*/
+.btn-crear {
+  padding: 10px 25px;
+  background-color: #7ce086;
+  border: 2px solid #4bb856;
+  font-size: 18px;
+  cursor: pointer;
+  width: 35%;
+}

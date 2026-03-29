@@ -1,0 +1,135 @@
+.contenido {
+  justify-content: center;
+
+  background-color: #f7f7f7;
+}
+.contains {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+.caja-filtros {
+  background-color: #f7f7f7;
+  border: 2px solid #ddd;
+  padding: 40px;
+  width: 600px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.caja-filtros h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+.fila-filtro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.fila-filtro-inferior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.fila-filtro-medio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.fila-filtro label {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+  padding-right: 10px;
+}
+.fila-filtro-medio label {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+  padding-right: 10px;
+}
+.fila-filtro-inferior label {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+  padding-right: 10px;
+}
+div.contenido .caja-filtros input {
+  flex: 1.5;
+  position: static;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #888;
+  font-size: 14px;
+}
+.btn-filtrar {
+  padding: 10px 25px;
+  background-color: #efefef;
+  border: 2px solid #888;
+  font-size: 18px;
+  cursor: pointer;
+  width: 35%;
+}
+
+/*Tabla*/
+.caja-tabla {
+  width: 90%;
+  background-color: white;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+.tabla-productos {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.tabla-productos th,
+.tabla-productos td {
+  border: 1px solid #ddd;
+  padding: 20px;
+  vertical-align: middle;
+}
+.celda-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  border: none;
+}
+
+.btn-agregar {
+  background-color: #7ce086;
+  border: 2px solid #4bb856;
+  padding: 8px 10px;
+  width: 140px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.btn-resena {
+  background-color: #ccc;
+  background-color: #f5f5f5;
+  padding: 8px 10px;
+  width: 140px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.btn-detalles {
+  background-color: #72c4f7;
+  border: 2px solid #3b9bd6;
+  padding: 8px 10px;
+  width: 140px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 3px;
+}

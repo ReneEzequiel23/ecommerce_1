@@ -1,0 +1,68 @@
+div.contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+}
+
+/* Tarjeta del formulario */
+.tarjeta-login {
+  background-color: #f7f7f7;
+  border: 2px solid #ddd;
+  padding: 40px;
+  width: 500px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+.tarjeta-login h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* Acomodo de los inputs y labels */
+.grupo-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.grupo-form label {
+  flex: 1;
+  text-align: left;
+}
+
+.grupo-form input {
+  flex: 2;
+  position: static;
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #888;
+}
+
+/* Botones y enlaces */
+.btn-iniciar {
+  width: 100%;
+  padding: 10px;
+  background-color: #81cbf5;
+  border: 2px solid #3fa9f5;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.link-registro {
+  display: inline-block;
+  margin: 20px 0;
+  color: #0088cc;
+  border: none;
+  font-size: 18px;
+}
+
+.btn-regresar {
+  padding: 8px 30px;
+  background-color: #efefef;
+  border: 2px solid #ccc;
+  cursor: pointer;
+}
