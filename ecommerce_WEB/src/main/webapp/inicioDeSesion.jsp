@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css" />
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/stylesInicioSesion.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/stylesInicioSesion.css" />
   </head>
   <body>
     <div class="containPP">
