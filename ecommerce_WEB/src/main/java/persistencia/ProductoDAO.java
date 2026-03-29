@@ -98,4 +98,26 @@ public class ProductoDAO {
             System.out.println("Error al insertar el libro: " + e.getMessage());
         }
     }
+    
+    // Método para ACTUALIZAR un producto existente
+    public void actualizar(Producto p) {
+        String sql = "UPDATE Producto SET nombre=?, descripcion=?, precio=?, existencia=?, categoria_id=? WHERE id=?";
+        
+        try (Connection con = ConexionBD.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            
+            ps.setString(1, p.getNombre());
+            ps.setString(2, p.getDescripcion());
+            ps.setDouble(3, p.getPrecio());
+            ps.setInt(4, p.getExistencia());
+            ps.setInt(5, p.getCategoriaId());
+            ps.setInt(6, p.getId()); // El ID va al final para la cláusula WHERE
+            
+            ps.executeUpdate();
+            System.out.println("Libro actualizado correctamente.");
+            
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar el libro: " + e.getMessage());
+        }
+    }
 }

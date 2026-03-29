@@ -49,6 +49,16 @@ public class ProductoServlet extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             dao.eliminar(id);
             response.sendRedirect("ProductoServlet?accion=listar");
+        }else if (accion.equals("editar")) {
+            // 1. Obtener el ID del libro que queremos editar
+            int id = Integer.parseInt(request.getParameter("id"));
+            
+            // 2. Buscar ese libro en la BD
+            Producto libroAEditar = dao.obtenerPorId(id);
+            
+            // 3. Mandar el libro a la vista (JSP)
+            request.setAttribute("producto", libroAEditar);
+            request.getRequestDispatcher("editarProducto.jsp").forward(request, response);
         }
     }
 
@@ -64,21 +74,31 @@ public class ProductoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // 1. Configuramos la codificación para aceptar acentos
         request.setCharacterEncoding("UTF-8");
         
-        // 2. Atrapamos los datos del formulario
+        // Obtenemos una acción secreta que enviaremos desde el formulario de editar
+        String accion = request.getParameter("accion");
+        
+        // Atrapamos los datos comunes
         String nombre = request.getParameter("nombre");
         String descripcion = request.getParameter("descripcion");
         double precio = Double.parseDouble(request.getParameter("precio"));
         int existencia = Integer.parseInt(request.getParameter("cantidad"));
         int categoriaId = Integer.parseInt(request.getParameter("categoria"));
         
-        // 3. Creamos el objeto y lo insertamos
-        Producto nuevoLibro = new Producto(0, nombre, descripcion, precio, existencia, categoriaId);
-        dao.insertar(nuevoLibro);
+        // Si la acción es "actualizar", hacemos el UPDATE
+        if ("actualizar".equals(accion)) {
+            // Atrapamos el ID oculto
+            int id = Integer.parseInt(request.getParameter("id"));
+            Producto libroEditado = new Producto(id, nombre, descripcion, precio, existencia, categoriaId);
+            dao.actualizar(libroEditado);
+        } else {
+            // Si no hay acción de actualizar, significa que viene de "crearProducto.jsp"
+            Producto nuevoLibro = new Producto(0, nombre, descripcion, precio, existencia, categoriaId);
+            dao.insertar(nuevoLibro);
+        }
         
-        // 4. Redirigimos de vuelta al catálogo
+        // Redirigimos de vuelta al catálogo
         response.sendRedirect("ProductoServlet?accion=listar");
     }
 
