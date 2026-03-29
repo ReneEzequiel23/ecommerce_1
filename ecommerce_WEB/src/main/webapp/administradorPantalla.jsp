@@ -61,7 +61,7 @@
           </div>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = '../pantallas/gestionarCatalogoProductos.html'"
+              onclick="window.location.href = '/ecommerce_WEB/ProductoServlet'"
               class="btn-gestion">
               Catalogo de Productos
             </button>
