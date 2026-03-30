@@ -17,7 +17,7 @@ import persistencia.UsuarioDAO;
 
 /**
  *
- * @author renee
+ * @author ReneEzequiel23 & EdgarAcevedoAcosta
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
@@ -35,17 +35,15 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // BORRAMOS processRequest(request, response);
-
-        // Recuperar la sesión actual (pasando 'false' para no crear una nueva si no existe)
+        
         HttpSession session = request.getSession(false);
 
         if (session != null) {
-            // Destruir la sesión por completo
+            // Destruir la sesión
             session.invalidate();
         }
 
-        // Redirigir de vuelta al login (Corregido a inicioDeSesion.jsp)
+        // Redirigir de vuelta al login
         response.sendRedirect("inicioDeSesion.jsp");
     }
 
@@ -61,31 +59,22 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // BORRAMOS processRequest(request, response);
-        
-        // 1. Recibir los parámetros del formulario HTML
         String correo = request.getParameter("correo");
         String password = request.getParameter("contraseña");
 
-        // 2. Instanciar el DAO y buscar al usuario
         UsuarioDAO dao = new UsuarioDAO();
         Usuario usuario = dao.autenticar(correo, password);
 
-        // 3. Validar si existe el usuario Y si su rol es administrador
         if (usuario != null && "admin".equals(usuario.getRol())) {
 
-            // ¡Login exitoso de administrador! 
             HttpSession session = request.getSession();
             session.setAttribute("adminLogueado", usuario);
 
-            // Redirigimos a la vista principal de administración
             response.sendRedirect("administradorPantalla.jsp");
 
         } else {
-            // Fallo de credenciales
             request.setAttribute("errorLogin", "Credenciales incorrectas o no tienes permisos de administrador.");
 
-            // Reenviamos a la página de login (Corregido a inicioDeSesion.jsp)
             request.getRequestDispatcher("inicioDeSesion.jsp").forward(request, response);
         }
     }

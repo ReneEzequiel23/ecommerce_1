@@ -7,12 +7,15 @@ import java.sql.SQLException;
 import negocio.Usuario;
 import utilidades.ConexionBD;
 
+/**
+ *
+ * @author ReneEzequiel23 & EdgarAcevedoAcosta
+ */
 public class UsuarioDAO {
 
     // Método para autenticar exclusivamente a los administradores
     public Usuario autenticar(String correo, String contrasena) {
         Usuario admin = null;
-        // La consulta exige que el rol sea 'admin'
         String sql = "SELECT * FROM Usuario WHERE correo = ? AND contraseña = ? AND rol = 'admin'";
 
         try (Connection con = ConexionBD.getConexion();
@@ -36,7 +39,6 @@ public class UsuarioDAO {
             System.out.println("Error al autenticar administrador: " + e.getMessage());
         }
         
-        // Si las credenciales son correctas y es admin, retorna el objeto; si no, retorna null
         return admin; 
     }
 }

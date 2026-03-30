@@ -6,9 +6,8 @@ package persistencia;
 
 /**
  *
- * @author renee
+ * @author ReneEzequiel23 & EdgarAcevedoAcosta
  */
-
 import negocio.Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,26 +16,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import utilidades.ConexionBD;
+
 public class ProductoDAO {
+
     public List<Producto> listarTodos() {
         List<Producto> listaProductos = new ArrayList<>();
         String sql = "SELECT * FROM Producto";
 
-        try (Connection con = ConexionBD.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+        try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
 
-            // Recorremos cada fila que nos devuelve MySQL
             while (rs.next()) {
                 Producto p = new Producto(
-                    rs.getInt("id"),
-                    rs.getString("nombre"),
-                    rs.getString("descripcion"),
-                    rs.getDouble("precio"),
-                    rs.getInt("existencia"),
-                    rs.getInt("categoria_id")
+                        rs.getInt("id"),
+                        rs.getString("nombre"),
+                        rs.getString("descripcion"),
+                        rs.getDouble("precio"),
+                        rs.getInt("existencia"),
+                        rs.getInt("categoria_id")
                 );
-                // Agregamos el producto a nuestra lista
+
                 listaProductos.add(p);
             }
         } catch (SQLException e) {
@@ -45,12 +43,11 @@ public class ProductoDAO {
 
         return listaProductos;
     }
-    
+
     // Método para ELIMINAR un producto
     public void eliminar(int id) {
         String sql = "DELETE FROM Producto WHERE id = ?";
-        try (Connection con = ConexionBD.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+        try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -58,17 +55,16 @@ public class ProductoDAO {
         }
     }
 
-    // Método para OBTENER un producto por su ID (Útil para llenar el formulario de Editar)
+    // Método para OBTENER un producto por su id
     public Producto obtenerPorId(int id) {
         Producto p = null;
         String sql = "SELECT * FROM Producto WHERE id = ?";
-        try (Connection con = ConexionBD.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+        try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    p = new Producto(rs.getInt("id"), rs.getString("nombre"), 
-                            rs.getString("descripcion"), rs.getDouble("precio"), 
+                    p = new Producto(rs.getInt("id"), rs.getString("nombre"),
+                            rs.getString("descripcion"), rs.getDouble("precio"),
                             rs.getInt("existencia"), rs.getInt("categoria_id"));
                 }
             }
@@ -77,45 +73,44 @@ public class ProductoDAO {
         }
         return p;
     }
+
     // Método para INSERTAR un nuevo producto
     public void insertar(Producto p) {
         String sql = "INSERT INTO Producto (nombre, descripcion, precio, existencia, categoria_id) VALUES (?, ?, ?, ?, ?)";
-        
-        try (Connection con = ConexionBD.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-            
+
+        try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
             // Llenamos los signos de interrogación con los datos del objeto
             ps.setString(1, p.getNombre());
             ps.setString(2, p.getDescripcion());
             ps.setDouble(3, p.getPrecio());
-            ps.setInt(4, p.getExistencia()); 
+            ps.setInt(4, p.getExistencia());
             ps.setInt(5, p.getCategoriaId());
-            
+
             ps.executeUpdate(); // Ejecutamos la inserción
             System.out.println("Libro insertado correctamente.");
-            
+
         } catch (SQLException e) {
             System.out.println("Error al insertar el libro: " + e.getMessage());
         }
     }
-    
+
     // Método para ACTUALIZAR un producto existente
     public void actualizar(Producto p) {
         String sql = "UPDATE Producto SET nombre=?, descripcion=?, precio=?, existencia=?, categoria_id=? WHERE id=?";
-        
-        try (Connection con = ConexionBD.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-            
+
+        try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
             ps.setString(1, p.getNombre());
             ps.setString(2, p.getDescripcion());
             ps.setDouble(3, p.getPrecio());
             ps.setInt(4, p.getExistencia());
             ps.setInt(5, p.getCategoriaId());
             ps.setInt(6, p.getId()); // El ID va al final para la cláusula WHERE
-            
+
             ps.executeUpdate();
             System.out.println("Libro actualizado correctamente.");
-            
+
         } catch (SQLException e) {
             System.out.println("Error al actualizar el libro: " + e.getMessage());
         }

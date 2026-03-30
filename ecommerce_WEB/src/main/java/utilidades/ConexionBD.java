@@ -13,27 +13,24 @@ import java.sql.SQLException;
  */
 public class ConexionBD {
     
-    // Cambia estos valores si tu usuario o contraseña de MySQL son diferentes
+    // Cambia estos valores si tu usuario o contraseña
     private static final String URL = "jdbc:mysql://localhost:3306/ecommerce_admin?useSSL=false&serverTimezone=UTC";
     private static final String USUARIO = "root"; 
     private static final String PASSWORD = "1234"; 
 
-    // Método estático para obtener la conexión
     public static Connection getConexion() {
         Connection conexion = null;
         try {
-            // 1. Cargar el Driver de MySQL (necesario en aplicaciones web)
             Class.forName("com.mysql.cj.jdbc.Driver");
             
-            // 2. Establecer la conexión
             conexion = DriverManager.getConnection(URL, USUARIO, PASSWORD);
-            System.out.println("¡Conexión exitosa a la base de datos!");
+            System.out.println("Conexión exitosa");
             
         } catch (ClassNotFoundException e) {
             System.out.println("Error: No se encontró el driver de MySQL.");
             e.printStackTrace();
         } catch (SQLException e) {
-            System.out.println("Error: Fallo la conexión a la base de datos.");
+            System.out.println("Fallo la conexión a la base de datos.");
             e.printStackTrace();
         }
         return conexion;

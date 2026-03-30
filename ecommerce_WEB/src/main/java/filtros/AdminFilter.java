@@ -19,34 +19,28 @@ public class AdminFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        // Método que se ejecuta al arrancar el servidor (lo dejamos vacío)
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         
-        // Convertimos los objetos a su versión HTTP para poder manejar sesiones y redirecciones
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         
-        // Obtenemos la sesión actual sin crear una nueva (por eso usamos 'false')
         HttpSession session = req.getSession(false);
         
         // Verificamos si existe la sesión y si tiene el objeto "adminLogueado" que guardamos en el LoginServlet
         boolean sesionIniciada = (session != null && session.getAttribute("adminLogueado") != null);
 
         if (sesionIniciada) {
-            // El usuario tiene el "gafete" de admin. Lo dejamos continuar su camino.
             chain.doFilter(request, response);
         } else {
-            // El usuario NO ha iniciado sesión. Lo bloqueamos y redirigimos al login.
             res.sendRedirect(req.getContextPath() + "/login.jsp");
         }
     }
 
     @Override
     public void destroy() {
-        // Método que se ejecuta al detener el filtro (lo dejamos vacío)
     }
 }

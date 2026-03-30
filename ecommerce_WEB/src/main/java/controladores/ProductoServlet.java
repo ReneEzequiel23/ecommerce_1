@@ -17,7 +17,7 @@ import persistencia.ProductoDAO;
 
 /**
  *
- * @author renee
+ * @author ReneEzequiel23 & EdgarAcevedoAcosta
  */
 @WebServlet(name = "ProductoServlet", urlPatterns = {"/ProductoServlet"})
 public class ProductoServlet extends HttpServlet {
@@ -50,13 +50,12 @@ public class ProductoServlet extends HttpServlet {
             dao.eliminar(id);
             response.sendRedirect("ProductoServlet?accion=listar");
         }else if (accion.equals("editar")) {
-            // 1. Obtener el ID del libro que queremos editar
             int id = Integer.parseInt(request.getParameter("id"));
             
-            // 2. Buscar ese libro en la BD
+            //Buscar ese libro en la BD
             Producto libroAEditar = dao.obtenerPorId(id);
             
-            // 3. Mandar el libro a la vista (JSP)
+            //Mandar el libro a la vista
             request.setAttribute("producto", libroAEditar);
             request.getRequestDispatcher("editarProducto.jsp").forward(request, response);
         }
@@ -79,16 +78,16 @@ public class ProductoServlet extends HttpServlet {
         // Obtenemos una acción secreta que enviaremos desde el formulario de editar
         String accion = request.getParameter("accion");
         
-        // Atrapamos los datos comunes
+        
         String nombre = request.getParameter("nombre");
         String descripcion = request.getParameter("descripcion");
         double precio = Double.parseDouble(request.getParameter("precio"));
         int existencia = Integer.parseInt(request.getParameter("cantidad"));
         int categoriaId = Integer.parseInt(request.getParameter("categoria"));
         
-        // Si la acción es "actualizar", hacemos el UPDATE
+        
         if ("actualizar".equals(accion)) {
-            // Atrapamos el ID oculto
+            
             int id = Integer.parseInt(request.getParameter("id"));
             Producto libroEditado = new Producto(id, nombre, descripcion, precio, existencia, categoriaId);
             dao.actualizar(libroEditado);

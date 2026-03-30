@@ -6,7 +6,7 @@ package negocio;
 
 /**
  *
- * @author renee
+ * @author ReneEzequiel23 & EdgarAcevedoAcosta
  */
 public class Producto {
     private int id;
@@ -14,13 +14,11 @@ public class Producto {
     private String descripcion;
     private double precio;
     private int existencia;
-    private int categoriaId; // Guardaremos el ID de la categoría (Fantasía, Ciencia Ficción, etc.)
+    private int categoriaId;
 
-    // Constructor vacío
     public Producto() {
     }
 
-    // Constructor completo
     public Producto(int id, String nombre, String descripcion, double precio, int existencia, int categoriaId) {
         this.id = id;
         this.nombre = nombre;
