@@ -16,7 +16,7 @@ public class ConexionBD {
     // Cambia estos valores si tu usuario o contraseña
     private static final String URL = "jdbc:mysql://localhost:3306/ecommerce_admin?useSSL=false&serverTimezone=UTC";
     private static final String USUARIO = "root"; 
-    private static final String PASSWORD = "1234"; 
+    private static final String PASSWORD = "2602"; 
 
     public static Connection getConexion() {
         Connection conexion = null;

@@ -37,7 +37,7 @@
             </li>
             <li class="page"><a href="carritoCompras.html">Carrito de Compras</a></li>
             <li class="page">
-              <a href="gestionDePedidos.html">GestiÃ³n de Pedidos</a>
+              <a href="gestionDePedidos.jsp">Gestión de Pedidos</a>
             </li>
             <li class="page">
               <a href="administradorPantalla.jsp" style="background-color: #999"
