@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pantalla Principal</title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
     <!-- Pagina Principal -->
@@ -16,13 +16,13 @@
           <ul>
             <li>
               <div class="perfil">
-                <input type="image" src="../Img/perfil.png" alt="Perfil" />
+                <input type="image" src="Img/perfil.png" alt="Perfil" />
                 <ul>
                   <!-- Tengo que Arreglar Este Css por que Solo se Activa
                      Cuando Tienes Presionado el Click en el Perfil 
                      y Aparece a la Izquierda xdddd-->
-                  <li><a href="../pantallas/perfilUsuario.html">Perfil</a></li>
-                  <li><a href="../pantallas/inicioDeSesion.html">Cerrar Sesión</a></li>
+                  <li><a href="perfilUsuario.html">Perfil</a></li>
+                  <li><a href="inicioDeSesion.html">Cerrar Sesión</a></li>
                 </ul>
               </div>
             </li>
@@ -32,18 +32,18 @@
       <div id="containerPg" class="menuLateral">
         <div class="menu">
           <ul>
-            <li class="page"><a href="../pantallas/index.html">Inicio</a></li>
+            <li class="page"><a href="index.jsp">Inicio</a></li>
             <li class="page">
-              <a href="../pantallas/catalogoProductos.html">Catalogo de Productos</a>
+              <a href="catalogoProductos.html">Catalogo de Productos</a>
             </li>
-            <li class="page"><a href="../pantallas/carritoCompras.html">Carrito de Compras</a></li>
+            <li class="page"><a href="carritoCompras.html">Carrito de Compras</a></li>
             <li class="page">
-              <a href="../pantallas/gestionDePedidos.html">Gestión de Pedidos</a>
+              <a href="gestionDePedidos.html">Gestión de Pedidos</a>
             </li>
             <li class="page">
-              <a href="../pantallas/administradorPantalla.html">Administrador</a>
+              <a href="administradorPantalla.jsp">Administrador</a>
             </li>
-            <li class="page"><a href="../pantallas/inicioDeSesion.html">Iniciar Sesión</a></li>
+            <li class="page"><a href="inicioDeSesion.jsp">Iniciar Sesión</a></li>
           </ul>
         </div>
       </div>

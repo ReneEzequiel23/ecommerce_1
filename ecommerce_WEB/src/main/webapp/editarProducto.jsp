@@ -16,20 +16,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editar Producto</title>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/styles.css" />
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/adminProducto.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/adminProducto.css" />
   </head>
   <body>
+      <!-- Pagina Principal -->
+    <!-- Edgar Arturo Acevedo Acosta 245769
+          Rene Ezequiel Figueroa LÃ³pez 228691 -->
     <div class="containPP">
       <div id="containerPg" class="barraSuperior">
         <nav>
           <ul>
             <li>
               <div class="perfil">
-                <input type="image" src="<%= request.getContextPath() %>/Img/perfil.png" alt="Perfil" />
+                <input type="image" src="Img/perfil.png" alt="Perfil" />
                 <ul>
-                  <li><a href="<%= request.getContextPath() %>/perfilUsuario.jsp">Perfil</a></li>
-                  <li><a href="<%= request.getContextPath() %>/LogoutServlet">Cerrar Sesión</a></li>
+                  <li><a href="perfilUsuario.jsp">Perfil</a></li>
+                  <li><a href="LogoutServlet">Cerrar Sesión</a></li>
                 </ul>
               </div>
             </li>
@@ -40,11 +43,11 @@
       <div id="containerPg" class="menuLateral">
         <div class="menu">
           <ul>
-            <li class="page"><a href="<%= request.getContextPath() %>/index.jsp">Inicio</a></li>
-            <li class="page"><a href="<%= request.getContextPath() %>/catalogoProductos.jsp">Catálogo Cliente</a></li>
-            <li class="page"><a href="<%= request.getContextPath() %>/carritoCompras.jsp">Carrito</a></li>
-            <li class="page"><a href="<%= request.getContextPath() %>/gestionDePedidos.jsp">Pedidos</a></li>
-            <li class="page"><a href="<%= request.getContextPath() %>/ProductoServlet" style="background-color: #999">Administrador</a></li>
+            <li class="page"><a href="index.jsp">Inicio</a></li>
+            <li class="page"><a href="catalogoProductos.jsp">Catálogo Cliente</a></li>
+            <li class="page"><a href="carritoCompras.jsp">Carrito</a></li>
+            <li class="page"><a href="gestionDePedidos.jsp">Pedidos</a></li>
+            <li class="page"><a href="ProductoServlet" style="background-color: #999">Administrador</a></li>
           </ul>
         </div>
       </div>

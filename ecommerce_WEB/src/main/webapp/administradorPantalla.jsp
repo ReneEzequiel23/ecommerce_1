@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/administrador.css" />
   </head>
   <body>
-    <!-- Inicio de sesion -->
+    <!-- Pantalla administrador -->
     <!-- Edgar Arturo Acevedo Acosta 245769
           Rene Ezequiel Figueroa L贸pez 228691 -->
     <div class="containPP">
@@ -17,10 +17,10 @@
           <ul>
             <li>
               <div class="perfil">
-                <input type="image" src="../Img/perfil.png" alt="Perfil" />
+                <input type="image" src="Img/perfil.png" alt="Perfil" />
                 <ul>
-                  <li><a href="../pantallas/perfilUsuario.html">Perfil</a></li>
-                  <li><a href="../pantallas/inicioDeSesion.html">Cerrar Sesi贸n</a></li>
+                  <li><a href="perfilUsuario.html">Perfil</a></li>
+                  <li><a href="inicioDeSesion.html">Cerrar Sesi贸n</a></li>
                 </ul>
               </div>
             </li>
@@ -31,20 +31,19 @@
       <div id="containerPg" class="menuLateral">
         <div class="menu">
           <ul>
-            <li class="page"><a href="../pantallas/index.html">Inicio</a></li>
+            <li class="page"><a href="index.jsp">Inicio</a></li>
             <li class="page">
-              <a href="../pantallas/catalogoProductos.html">Catalogo de Productos</a>
+              <a href="catalogoProductos.jsp">Catalogo de Productos</a>
             </li>
-            <li class="page"><a href="../pantallas/carritoCompras.html">Carrito de Compras</a></li>
+            <li class="page"><a href="carritoCompras.html">Carrito de Compras</a></li>
             <li class="page">
-              <a href="../pantallas/gestionDePedidos.html">Gesti贸n de Pedidos</a>
+              <a href="gestionDePedidos.html">Gesti贸n de Pedidos</a>
             </li>
             <li class="page">
-              <a href="../pantallas/administradorPantalla.html" style="background-color: #999"
-                >Administrador</a
-              >
+              <a href="administradorPantalla.jsp" style="background-color: #999"
+                >Administrador</a>
             </li>
-            <li class="page"><a href="../pantallas/inicioDeSesion.html">Iniciar Sesi贸n</a></li>
+            <li class="page"><a href="inicioDeSesion.jsp">Iniciar Sesi贸n</a></li>
           </ul>
         </div>
       </div>
@@ -54,7 +53,7 @@
           <h2 class="titulo-contenido">Gestionar</h2>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = '../pantallas/administrarUsuarios.html'"
+              onclick="window.location.href = 'administrarUsuarios.html'"
               class="btn-gestion">
               Administrar Usuarios
             </button>
@@ -68,28 +67,28 @@
           </div>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = '../pantallas/crearProducto.html'"
+              onclick="window.location.href = 'crearProducto.jsp'"
               class="btn-gestion">
               Crear Producto
             </button>
           </div>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = '../pantallas/editarProducto.html'"
+              onclick="window.location.href = 'editarProducto.jsp'"
               class="btn-gestion">
               Editar Producto
             </button>
           </div>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = '../pantallas/gestionarPedidos.html'"
+              onclick="window.location.href = 'gestionarPedidos.html'"
               class="btn-gestion">
               Pedidos
             </button>
           </div>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = '../pantallas/gestionarRese帽as.html'"
+              onclick="window.location.href = 'gestionarRese馻s.html'"
               class="btn-gestion">
               Rese帽as
             </button>

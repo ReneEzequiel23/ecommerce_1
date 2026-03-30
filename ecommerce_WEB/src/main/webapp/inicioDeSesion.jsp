@@ -9,16 +9,19 @@
     <link rel="stylesheet" href="css/stylesInicioSesion.css" />
   </head>
   <body>
+      <!-- Pagina Principal -->
+    <!-- Edgar Arturo Acevedo Acosta 245769
+          Rene Ezequiel Figueroa LÃ³pez 228691 -->
     <div class="containPP">
       <div id="containerPg" class="barraSuperior">
         <nav>
           <ul>
             <li>
               <div class="perfil">
-                <input type="image" src="<%= request.getContextPath() %>/Img/perfil.png" alt="Perfil" />
+                <input type="image" src="Img/perfil.png" alt="Perfil" />
                 <ul>
-                  <li><a href="<%= request.getContextPath() %>/perfilUsuario.jsp">Perfil</a></li>
-                  <li><a href="<%= request.getContextPath() %>/LogoutServlet">Cerrar Sesión</a></li>
+                  <li><a href="perfilUsuario.jsp">Perfil</a></li>
+                  <li><a href="LogoutServlet">Cerrar Sesión</a></li>
                 </ul>
               </div>
             </li>
@@ -29,19 +32,19 @@
       <div id="containerPg" class="menuLateral">
         <div class="menu">
           <ul>
-            <li class="page"><a href="<%= request.getContextPath() %>/index.jsp">Inicio</a></li>
+            <li class="page"><a href="index.jsp">Inicio</a></li>
             <li class="page">
-              <a href="<%= request.getContextPath() %>/catalogoProductos.jsp">Catalogo de Productos</a>
+              <a href="catalogoProductos.jsp">Catalogo de Productos</a>
             </li>
-            <li class="page"><a href="<%= request.getContextPath() %>/carritoCompras.jsp">Carrito de Compras</a></li>
+            <li class="page"><a href="carritoCompras.jsp">Carrito de Compras</a></li>
             <li class="page">
-              <a href="<%= request.getContextPath() %>/gestionDePedidos.jsp">Gestión de Pedidos</a>
-            </li>
-            <li class="page">
-              <a href="<%= request.getContextPath() %>/admin_dashboard.jsp">Administrador</a>
+              <a href="gestionDePedidos.jsp">Gestión de Pedidos</a>
             </li>
             <li class="page">
-              <a href="<%= request.getContextPath() %>/inicioDeSesion.jsp" style="background-color: #999">Iniciar Sesión</a>
+              <a href="administradorPantalla.jsp">Administrador</a>
+            </li>
+            <li class="page">
+              <a href="inicioDeSesion.jsp" style="background-color: #999">Iniciar Sesión</a>
             </li>
           </ul>
         </div>
@@ -51,7 +54,7 @@
         <div class="tarjeta-login">
           <h2>Iniciar Sesión</h2>
           
-          <form action="<%= request.getContextPath() %>/LoginServlet" method="POST">
+          <form action="LoginServlet" method="POST">
             
             <% if(request.getAttribute("errorLogin") != null) { %>
                 <p style="color: #d9534f; text-align: center; font-weight: bold;">
