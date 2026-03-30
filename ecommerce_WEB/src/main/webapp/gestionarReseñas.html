@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editar Producto</title>
+    <title>Administrar reseñas</title>
+    <link rel="stylesheet" href="../css/gestionarReseñas.css" />
     <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/adminProducto.css" />
   </head>
   <body>
-    <!-- Inicio de sesion -->
+    <!-- Pagina Principal -->
     <!-- Edgar Arturo Acevedo Acosta 245769
           Rene Ezequiel Figueroa López 228691 -->
     <div class="containPP">
@@ -19,6 +19,9 @@
               <div class="perfil">
                 <input type="image" src="../Img/perfil.png" alt="Perfil" />
                 <ul>
+                  <!-- Tengo que Arreglar Este Css por que Solo se Activa
+                     Cuando Tienes Presionado el Click en el Perfil 
+                     y Aparece a la Izquierda xdddd-->
                   <li><a href="../pantallas/perfilUsuario.html">Perfil</a></li>
                   <li><a href="../pantallas/inicioDeSesion.html">Cerrar Sesión</a></li>
                 </ul>
@@ -27,7 +30,6 @@
           </ul>
         </nav>
       </div>
-
       <div id="containerPg" class="menuLateral">
         <div class="menu">
           <ul>
@@ -42,39 +44,45 @@
             <li class="page">
               <a href="../pantallas/administradorPantalla.html">Administrador</a>
             </li>
-            <li class="page">
-              <a href="../pantallas/inicioDeSesion.html" style="background-color: #999"
-                >Iniciar Sesión</a
-              >
-            </li>
+            <li class="page"><a href="../pantallas/inicioDeSesion.html">Iniciar Sesión</a></li>
           </ul>
         </div>
       </div>
+      <div id="containerPg" class="contenido area-admin-reseña">
+        <h2 class="titulo-admin">Administrar Reseñas</h2>
 
-      <div id="containerPg" class="contenido">
-        <div class="tarjeta-producto">
-          <h2>Editar Producto</h2>
-          <form action="#" method="POST">
-            <div class="grupo-form">
-              <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" name="nombre" required />
-            </div>
-            <div class="grupo-form">
-              <label for="descripcion">Descripción</label>
-            </div>
-            <div class="grupo-form">
-              <textarea name="descripcion" id="descripcion"></textarea>
-            </div>
-            <div class="grupo-form">
-              <label for="precio">Precio</label>
-              <input type="number" id="precio" name="precio" step="0.01" required />
-            </div>
-            <div class="grupo-form">
-              <label for="cantidad">Cantidad en Stock</label>
-              <input type="number" id="cantidad" name="cantidad" min="0" required />
-            </div>
-            <button type="submit" class="btn-actualizar">Actualizar</button>
-          </form>
+        <div class="caja-tabla-admin">
+          <table class="tabla-admin">
+            <thead>
+              <tr>
+                <th>Usuario</th>
+                <th>Producto</th>
+                <th>Calificacion</th>
+                <th>Fecha</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TextoEjemplo</td>
+                <td>Harry potter</td>
+                <td>positiva</td>
+                <td>12/10/2025</td>
+                <td class="celda-acciones">
+                  <button type="button" class="btn-eliminar">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>TextoEjemplo</td>
+                <td>El principito</td>
+                <td>Muy positica</td>
+                <td>05/11/2025</td>
+                <td class="celda-acciones">
+                  <button type="button" class="btn-eliminar">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pantalla Principal</title>
+    <link rel="stylesheet" href="css/styles.css"/>
+  </head>
+  <body>
+    <!-- Pagina Principal -->
+    <!-- Edgar Arturo Acevedo Acosta 245769
+          Rene Ezequiel Figueroa López 228691 -->
+    <div class="containPP">
+      <div id="containerPg" class="barraSuperior">
+        <nav>
+          <ul>
+            <li>
+              <div class="perfil">
+                <input type="image" src="Img/perfil.png" alt="Perfil" />
+                <ul>
+                  <!-- Tengo que Arreglar Este Css por que Solo se Activa
+                     Cuando Tienes Presionado el Click en el Perfil 
+                     y Aparece a la Izquierda xdddd-->
+                  <li><a href="perfilUsuario.html">Perfil</a></li>
+                  <li><a href="inicioDeSesion.html">Cerrar Sesión</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div id="containerPg" class="menuLateral">
+        <div class="menu">
+          <ul>
+            <li class="page"><a href="index.jsp">Inicio</a></li>
+            <li class="page">
+              <a href="catalogoProductos.html">Catalogo de Productos</a>
+            </li>
+            <li class="page"><a href="carritoCompras.html">Carrito de Compras</a></li>
+            <li class="page">
+              <a href="gestionDePedidos.html">Gestión de Pedidos</a>
+            </li>
+            <li class="page">
+              <a href="administradorPantalla.jsp">Administrador</a>
+            </li>
+            <li class="page"><a href="inicioDeSesion.jsp">Iniciar Sesión</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="containerPg" class="contenido">
+        <!-- Es el Unico que va a estar Cambiando por Pantalla-->
+        <div class="equipo">
+          <h3 class="nombres">Edgar Arturo Acevedo Acosta 245769</h3>
+          <h3 class="nombres">Rene Ezequiel Figueroa López 228691</h3>
+        </div>
+      </div>
+
+      <div id="containerPg" class="piePagina">
+        <h3 class="materia">Aplicaciones Web - Unidad 2</h3>
+      </div>
+    </div>
+  </body>
+</html>

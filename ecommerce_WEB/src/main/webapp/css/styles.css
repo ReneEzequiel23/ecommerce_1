@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+/* Hacer que abarque toda la Pantalla*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18 px;
+}
+.containPP {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 5px;
+}
+
+div.menuLateral {
+  background-color: #d9d9d9;
+  grid-column: 1;
+  grid-row: 1 / 7;
+  padding-top: 83px;
+}
+div.barraSuperior {
+  grid-column: 2/6;
+  grid-row: 1;
+  background-color: #ededed;
+}
+div.contenido {
+  grid-column: 2/6;
+  grid-row: 2/6;
+}
+div.piePagina {
+  grid-column: 2/6;
+  grid-row: 6;
+  background-color: #ededed;
+}
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+li.page {
+  line-height: 3rem;
+
+  background-color: #bababa;
+  position: relative;
+}
+a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid rgb(124, 124, 124);
+}
+input {
+  position: relative;
+  left: 90%;
+  align-items: center;
+  flex-direction: column;
+  width: 50px;
+}
+.materia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.equipo {
+  padding-left: 5rem;
+  padding-top: 1.4rem;
+}
+nav ul {
+  list-style: none;
+}
+nav li {
+  line-height: 3rem;
+}
+nav li ul {
+  position: absolute;
+}
+nav a {
+  color: black;
+  text-decoration: none;
+}
+nav li ul {
+  display: none;
+}
+nav li :active ul {
+  display: block;
+}
+/*Aqui lo Hago por Niveles que es diseño para hacelo como menu*/
+
+.barraSuperior > ul > li {
+  float: right;
+}
+/*Segundo Nivel*/
+nav li li {
+  background: #d9d9d9;
+  max-height: 0;
+  overflow: hidden;
+  transition: 5s;
+  width: 200px;
+}
+nav li :active > ul > li {
+  max-height: 1000px;
+  overflow: visible;
+}
+nav > ul > li > ul {
+  top: 100%;
+}
+nav ul ul ul {
+  display: none;
+}

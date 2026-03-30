@@ -1,0 +1,126 @@
+.contenido {
+  justify-content: center;
+
+  background-color: #f7f7f7;
+}
+.primer-cont {
+  align-items: center;
+  display: flex;
+  padding: 30px;
+}
+.caja-tabla {
+  background-color: #f7f7f7;
+  border: 2px solid #ddd;
+  padding: 40px;
+  width: 700px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.metodoP {
+  width: 400px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.metodoP h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+.segundo-cont {
+  width: 1130px;
+
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.radios {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.radios label {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+  padding-right: 10px;
+}
+div.metodoP .radios input {
+  flex: 1.5;
+  position: static;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #888;
+  font-size: 14px;
+}
+.contoF {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.contoF label {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+  padding-right: 10px;
+}
+
+div.segundo-cont .contoF input {
+  flex: 1.5;
+  position: static;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #888;
+  font-size: 14px;
+}
+
+/*Tabla*/
+.caja-tabla {
+  background-color: white;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+.tabla-productos {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.tabla-productos th,
+.tabla-productos td {
+  border: 1px solid #ddd;
+  padding: 20px;
+  vertical-align: middle;
+}
+
+.botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.btn-confirmar {
+  background-color: #7ce086;
+  border: 2px solid #4bb856;
+  padding: 8px 10px;
+  width: 140px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.btn-cancelar {
+  background-color: #f47b62;
+  border: 2px solid #c95138;
+  padding: 8px 10px;
+  width: 140px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 3px;
+}

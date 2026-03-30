@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editar Producto</title>
+    <title>Registro de usuario</title>
     <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/adminProducto.css" />
+    <link rel="stylesheet" href="../css/stylesRegistroUsuario.css" />
   </head>
+
   <body>
-    <!-- Inicio de sesion -->
+    <!-- Registro de usuario -->
     <!-- Edgar Arturo Acevedo Acosta 245769
           Rene Ezequiel Figueroa López 228691 -->
     <div class="containPP">
@@ -42,38 +43,60 @@
             <li class="page">
               <a href="../pantallas/administradorPantalla.html">Administrador</a>
             </li>
-            <li class="page">
-              <a href="../pantallas/inicioDeSesion.html" style="background-color: #999"
-                >Iniciar Sesión</a
-              >
-            </li>
+            <li class="page"><a href="../pantallas/inicioDeSesion.html">Iniciar Sesión</a></li>
           </ul>
         </div>
       </div>
 
       <div id="containerPg" class="contenido">
-        <div class="tarjeta-producto">
-          <h2>Editar Producto</h2>
-          <form action="#" method="POST">
+        <div class="tarjeta-registro">
+          <h2>Registrarse</h2>
+
+          <form action="../pantallas/inicioDeSesion.html" method="GET">
             <div class="grupo-form">
               <label for="nombre">Nombre</label>
               <input type="text" id="nombre" name="nombre" required />
             </div>
+
             <div class="grupo-form">
-              <label for="descripcion">Descripción</label>
+              <label for="correo">Correo Electrónico</label>
+              <input
+                type="email"
+                id="correo"
+                name="correo"
+                placeholder="Example@example.com"
+                required />
             </div>
+
             <div class="grupo-form">
-              <textarea name="descripcion" id="descripcion"></textarea>
+              <label for="telefono">Numero Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" required />
             </div>
+
             <div class="grupo-form">
-              <label for="precio">Precio</label>
-              <input type="number" id="precio" name="precio" step="0.01" required />
+              <label for="direccion">Dirección Envío</label>
+              <input type="text" id="direccion" name="direccion" required />
             </div>
+
             <div class="grupo-form">
-              <label for="cantidad">Cantidad en Stock</label>
-              <input type="number" id="cantidad" name="cantidad" min="0" required />
+              <label for="password">Contraseña</label>
+              <input type="password" id="password" name="password" required />
             </div>
-            <button type="submit" class="btn-actualizar">Actualizar</button>
+
+            <div class="grupo-form">
+              <label for="confirm_password">Confirmar Contraseña</label>
+              <input type="password" id="confirm_password" name="confirm_password" required />
+            </div>
+
+            <div class="botones-registro">
+              <button
+                type="button"
+                class="btn-cancelar"
+                onclick="window.location.href = '../pantallas/inicioDeSesion.html'">
+                Cancelar
+              </button>
+              <button type="submit" class="btn-crear">Crear Cuenta</button>
+            </div>
           </form>
         </div>
       </div>

@@ -1,0 +1,43 @@
+.titulo-compra {
+  font-size: 28px;
+  margin-bottom: 40px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.contenedor-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.fila-dato {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.etiqueta-dato {
+  width: 200px;
+  text-align: right;
+  font-size: 18px;
+}
+
+.valor-dato {
+  width: 200px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.contenedor-boton {
+  text-align: center;
+}
+
+.btn-regresar {
+  padding: 8px 30px;
+  background-color: #efefef;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  cursor: pointer;
+}

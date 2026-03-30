@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/carrito.css" />
+  </head>
+
+  <body>
+    <div class="containPP">
+      <div id="containerPg" class="barraSuperior">
+        <nav>
+          <ul>
+            <li>
+              <div class="perfil">
+                <input type="image" src="../Img/perfil.png" alt="Perfil" />
+                <ul>
+                  <li><a href="../pantallas/perfilUsuario.html">Perfil</a></li>
+                  <li><a href="../pantallas/inicioDeSesion.html">Cerrar Sesión</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div id="containerPg" class="menuLateral">
+        <div class="menu">
+          <ul>
+            <li class="page"><a href="../pantallas/index.html">Inicio</a></li>
+            <li class="page">
+              <a href="../pantallas/catalogoProductos.html">Catalogo de Productos</a>
+            </li>
+            <li class="page" style="background-color: #999">
+              <a href="../pantallas/carritoCompras.html">Carrito de Compras</a>
+            </li>
+            <li class="page">
+              <a href="../pantallas/gestionDePedidos.html">Gestión de Pedidos</a>
+            </li>
+            <li class="page">
+              <a href="../pantallas/administradorPantalla.html">Administrador</a>
+            </li>
+            <li class="page"><a href="../pantallas/inicioDeSesion.html">Iniciar Sesión</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="containerPg" class="contenido area-carrito">
+        <div class="caja-carrito">
+          <table class="tabla-carrito">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Harry Potter: Saga Completa</td>
+                <td>2500.00</td>
+                <td>1</td>
+                <td>
+                  <button type="button" class="btn-eliminar">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Shintara datta Ken Slime</td>
+                <td>1500.00</td>
+                <td>1</td>
+                <td>
+                  <button type="button" class="btn-eliminar">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>El Principito</td>
+                <td>125.54</td>
+                <td>1</td>
+                <td>
+                  <button type="button" class="btn-eliminar">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="seccion-pago">
+          <div class="fila-total">
+            <span class="etiqueta-total">Costo Final</span>
+            <input type="text" value="4,125.54" readonly class="input-total" />
+          </div>
+          <button
+            type="button"
+            class="btn-pagar"
+            onclick="window.location.href = '../pantallas/procesoDeCompra.html'">
+            Pagar
+          </button>
+        </div>
+      </div>
+
+      <div id="containerPg" class="piePagina">
+        <h3 class="materia">Aplicaciones Web - Unidad 2</h3>
+      </div>
+    </div>
+  </body>
+</html>
