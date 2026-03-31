@@ -35,14 +35,14 @@
                     <ul>
                         <li class="page"><a href="index.jsp">Inicio</a></li>
                         <li class="page">
-                            <a href="catalogoProductos.jsp">Catálogo (Vista Cliente)</a>
+                            <a href="catalogoProductos.html">Catálogo (Vista Cliente)</a>
                         </li>
                         <li class="page"><a href="carritoCompras.jsp">Carrito de Compras</a></li>
                         <li class="page">
                             <a href="gestionDePedidos.jsp">Gestión de Pedidos</a>
                         </li>
                         <li class="page">
-                            <a href="admin_dashboard.jsp" style="background-color: #999">Administrador</a>
+                            <a href="administradorPantalla.jsp" style="background-color: #999">Administrador</a>
                         </li>
                     </ul>
                 </div>

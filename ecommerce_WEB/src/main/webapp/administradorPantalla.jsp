@@ -33,7 +33,7 @@
           <ul>
             <li class="page"><a href="index.jsp">Inicio</a></li>
             <li class="page">
-              <a href="catalogoProductos.jsp">Catalogo de Productos</a>
+              <a href="catalogoProductos.html">Catalogo de Productos</a>
             </li>
             <li class="page"><a href="carritoCompras.html">Carrito de Compras</a></li>
             <li class="page">
@@ -88,7 +88,7 @@
           </div>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = 'gestionarReseñas.html'"
+              onclick="window.location.href = 'gestionarReseñas.jsp'"
               class="btn-gestion">
               Reseñas
             </button>

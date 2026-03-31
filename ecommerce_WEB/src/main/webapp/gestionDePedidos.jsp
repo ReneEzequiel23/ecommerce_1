@@ -41,7 +41,7 @@
                             <a href="gestionDePedidos.jsp">Gestión de Pedidos</a>
                         </li>
                         <li class="page">
-                            <a href="admin_dashboard.jsp" style="background-color: #999">Administrador</a>
+                            <a href="administradorPantalla.jsp" style="background-color: #999">Administrador</a>
                         </li>
                     </ul>
                 </div>

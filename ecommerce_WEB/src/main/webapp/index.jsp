@@ -38,12 +38,12 @@
             </li>
             <li class="page"><a href="carritoCompras.html">Carrito de Compras</a></li>
             <li class="page">
-              <a href="gestionDePedidos.html">GestiÃ³n de Pedidos</a>
+              <a href="gestionDePedidos.html">Gestión de Pedidos</a>
             </li>
             <li class="page">
               <a href="administradorPantalla.jsp">Administrador</a>
             </li>
-            <li class="page"><a href="inicioDeSesion.jsp">Iniciar SesiÃ³n</a></li>
+            <li class="page"><a href="inicioDeSesion.jsp">Iniciar Sesión</a></li>
           </ul>
         </div>
       </div>
