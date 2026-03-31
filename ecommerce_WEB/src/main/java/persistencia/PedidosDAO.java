@@ -60,16 +60,15 @@ public class PedidosDAO {
     }
     
     public void agregarPedido(Pedido p){
-        String sql = "INSERT INTO Pedido (fecha, estado, total, usuario_id, direccion_id) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Pedido ( estado, total, usuario_id, direccion_id) VALUES ( ?, ?, ?, ?)";
 
         try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
 
             // Llenamos los signos de interrogación con los datos del objeto
-            ps.setDate(1, p.getFecha());
-            ps.setString(2, p.getEstado());
-            ps.setDouble(3, p.getTotal());
-            ps.setInt(4, p.getUsuario_id());
-            ps.setInt(5, p.getDireccion_id());
+            ps.setString(1, p.getEstado());
+            ps.setDouble(2, p.getTotal());
+            ps.setInt(3, p.getUsuario_id());
+            ps.setInt(4, p.getDireccion_id());
 
             ps.executeUpdate(); // Ejecutamos la inserción
             System.out.println("Pedido agregado correctamente.");
@@ -80,16 +79,15 @@ public class PedidosDAO {
     }
     
     public void actualizar(Pedido p){
-        String sql = "UPDATE Producto SET nombre=?, descripcion=?, precio=?, existencia=?, categoria_id=? WHERE id=?";
+        String sql = "UPDATE Pedido SET  estado=?, total=?, usuario_id=?, direccion_id=? WHERE id=?";
 
         try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setDate(1, p.getFecha());
-            ps.setString(2, p.getEstado());
-            ps.setDouble(3, p.getTotal());
-            ps.setInt(4, p.getUsuario_id());
-            ps.setInt(5, p.getDireccion_id());
-            ps.setInt(6, p.getId()); // El ID va al final para la cláusula WHERE
+            ps.setString(1, p.getEstado());
+            ps.setDouble(2, p.getTotal());
+            ps.setInt(3, p.getUsuario_id());
+            ps.setInt(4, p.getDireccion_id());
+            ps.setInt(5, p.getId()); // El ID va al final para la cláusula WHERE
 
             ps.executeUpdate();
             System.out.println("Pedido actualizado correctamente.");

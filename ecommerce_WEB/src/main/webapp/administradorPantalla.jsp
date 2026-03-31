@@ -81,7 +81,7 @@
           </div>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = 'gestionarPedidos.html'"
+              onclick="window.location.href = 'gestionDePedidos.jsp'"
               class="btn-gestion">
               Pedidos
             </button>
@@ -90,7 +90,7 @@
             <button
               onclick="window.location.href = 'gestionarReseñas.html'"
               class="btn-gestion">
-              ReseÃ±as
+              Reseñas
             </button>
           </div>
         </div>
