@@ -8,6 +8,7 @@ CREATE TABLE Usuario (
     correo VARCHAR(100) UNIQUE NOT NULL,
     contraseña VARCHAR(255) NOT NULL,
     telefono VARCHAR(20),
+    activo boolean DEFAULT true,
     rol VARCHAR(20) DEFAULT 'cliente' -- Fundamental para diferenciar al administrador
 );
 

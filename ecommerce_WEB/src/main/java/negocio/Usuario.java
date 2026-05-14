@@ -16,9 +16,21 @@ public class Usuario {
     private String contrasena;
     private String telefono;
     private String rol;
+    private boolean activo;
 
     public Usuario() {
     }
+
+    public Usuario(int id, String nombre, String correo, String contrasena, String telefono, String rol, boolean activo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.telefono = telefono;
+        this.rol = rol;
+        this.activo = activo;
+    }
+    
 
     public Usuario(int id, String nombre, String correo, String contrasena, String telefono, String rol) {
         this.id = id;
@@ -27,6 +39,7 @@ public class Usuario {
         this.contrasena = contrasena;
         this.telefono = telefono;
         this.rol = rol;
+        this.activo=true;
     }
 
     public int getId() {
@@ -63,6 +76,14 @@ public class Usuario {
 
     public String getTelefono() {
         return telefono;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     public void setTelefono(String telefono) {
