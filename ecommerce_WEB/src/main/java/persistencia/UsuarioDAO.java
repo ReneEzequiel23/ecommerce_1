@@ -128,20 +128,22 @@ public class UsuarioDAO {
 
     // Método para ACTUALIZAR un usuario existente
     public void actualizar(Usuario p) {
-        String sql = "UPDATE Usuario SET activo=? WHERE id=?";
+        String sql = "UPDATE Usuario SET nombre=?, correo=?,contraseña=?,telefono=?,rol=?,activo=? WHERE id=?";
         boolean act=true;
+        if (p.isActivo() == true) {
+            act = false;
+            p.setActivo(act);
+        }
 
         try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
-            if(p.isActivo()==true){
-                act=false;
-                p.setActivo(act);
-            }
-            ps.setBoolean(1, p.isActivo());
-//            ps.setString(2, p.getCorreo());
-//            ps.setString(3, p.getContrasena());
-//            ps.setString(4, p.getTelefono());
-//            ps.setString(5, p.getRol());
-            ps.setInt(2, p.getId()); // El ID va al final para la cláusula WHERE
+            
+            ps.setString(1, p.getNombre());
+            ps.setString(2, p.getCorreo());
+            ps.setString(3, p.getContrasena());
+            ps.setString(4, p.getTelefono());
+            ps.setString(5, p.getRol());
+            ps.setBoolean(6, p.isActivo());
+            ps.setInt(7, p.getId()); // El ID va al final para la cláusula WHERE
 
             ps.executeUpdate();
             System.out.println("Usuario actualizado correctamente.");

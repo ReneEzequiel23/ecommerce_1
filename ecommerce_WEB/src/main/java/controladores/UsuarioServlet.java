@@ -42,7 +42,7 @@ public class UsuarioServlet extends HttpServlet {
         if (accion == null || accion.isEmpty() || accion.equals("listar")) {
             List<Usuario> lista = dao.listarTodos();
             request.setAttribute("listaUsuarios", lista);
-            request.getRequestDispatcher("administrarUsuarios.jsp").forward(request, response);
+            
 
         } else if (accion.equals("eliminar")) {
             int id = Integer.parseInt(request.getParameter("id"));
@@ -54,12 +54,12 @@ public class UsuarioServlet extends HttpServlet {
             //Buscar ese usuario en la BD
             Usuario usuarioAEditar = dao.obtenerPorId(id);
             dao.actualizar(usuarioAEditar);;
-            
+            response.sendRedirect("UsuarioServlet?accion=listar");
             //Mandar el usuario a la vista
             
-            request.setAttribute("usuario", usuarioAEditar);
-//            response.sendRedirect("UsuarioServlet?accion=listar");
-            request.getRequestDispatcher("administrarUsuarios.jsp").forward(request, response);
+//            request.setAttribute("usuario", usuarioAEditar);
+////            response.sendRedirect("UsuarioServlet?accion=listar");
+//            request.getRequestDispatcher("administrarUsuarios.jsp").forward(request, response);
         }
     }
 
@@ -84,11 +84,12 @@ public class UsuarioServlet extends HttpServlet {
         String contrasena = request.getParameter("contrasena");
         String telefono = request.getParameter("telefono");
         String rol= request.getParameter("rol");
+        boolean activo= Boolean.valueOf(request.getParameter("activo"));
 
         if ("actualizar".equals(accion)) {
 
             int id = Integer.parseInt(request.getParameter("id"));
-            Usuario usuarioEditado = new Usuario(id, nombre, Correo, contrasena, telefono, rol);
+            Usuario usuarioEditado = new Usuario(id, nombre, Correo, contrasena, telefono, rol,activo);
             dao.actualizar(usuarioEditado);
         } else {
             // Si no hay acción de actualizar, significa que viene de "crearProducto.jsp"
