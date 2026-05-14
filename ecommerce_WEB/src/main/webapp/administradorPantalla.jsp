@@ -37,7 +37,7 @@
             </li>
             <li class="page"><a href="carritoCompras.html">Carrito de Compras</a></li>
             <li class="page">
-              <a href="gestionDePedidos.html">GestiÃ³n de Pedidos</a>
+              <a href="gestionDePedidos.jsp">Gestión de Pedidos</a>
             </li>
             <li class="page">
               <a href="administradorPantalla.jsp" style="background-color: #999"
@@ -81,16 +81,16 @@
           </div>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = 'gestionarPedidos.html'"
+              onclick="window.location.href = 'gestionDePedidos.jsp'"
               class="btn-gestion">
               Pedidos
             </button>
           </div>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = 'gestionarReseñas.html'"
+              onclick="window.location.href = 'gestionarReseñas.jsp'"
               class="btn-gestion">
-              ReseÃ±as
+              Reseñas
             </button>
           </div>
         </div>

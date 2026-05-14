@@ -20,6 +20,7 @@ public class Prueba {
     if (con != null) {
         System.out.println("Todo listo para empezar con los DAOs y BOs.");
     }
+    
 }
     
 }
