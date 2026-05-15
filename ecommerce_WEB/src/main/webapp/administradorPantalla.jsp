@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,7 +20,7 @@
                 <input type="image" src="Img/perfil.png" alt="Perfil" />
                 <ul>
                   <li><a href="perfilUsuario.html">Perfil</a></li>
-                  <li><a href="inicioDeSesion.html">Cerrar SesiÃ³n</a></li>
+                  <li><a href="inicioDeSesion.html">Cerrar Sesión</a></li>
                 </ul>
               </div>
             </li>
@@ -43,7 +43,7 @@
               <a href="administradorPantalla.jsp" style="background-color: #999"
                 >Administrador</a>
             </li>
-            <li class="page"><a href="inicioDeSesion.jsp">Iniciar SesiÃ³n</a></li>
+            <li class="page"><a href="inicioDeSesion.jsp">Iniciar Sesión</a></li>
           </ul>
         </div>
       </div>
@@ -53,7 +53,7 @@
           <h2 class="titulo-contenido">Gestionar</h2>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = '/ecommerce_WEB/UsuarioServlet'"
+              onclick="window.location.href = '/ecommerce_WEB/AdministrarUsuarioServlet'"
               class="btn-gestion">
               Administrar Usuarios
             </button>

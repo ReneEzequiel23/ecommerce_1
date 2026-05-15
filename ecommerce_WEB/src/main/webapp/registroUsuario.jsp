@@ -1,0 +1,118 @@
+<%-- 
+    Document   : registroUsuario
+    Created on : 14 may 2026, 4:25:13 p.m.
+    Author     : edgar
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Registro de usuario</title>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/stylesRegistroUsuario.css" />
+    </head>
+    <body>
+        <!-- Registro de usuario -->
+        <!-- Edgar Arturo Acevedo Acosta 245769
+              Rene Ezequiel Figueroa López 228691 -->
+        <div class="containPP">
+            <div id="containerPg" class="barraSuperior">
+                <nav>
+                    <ul>
+                        <li>
+                            <div class="perfil">
+                                <input type="image" src="/Img/perfil.png" alt="Perfil" />
+                                <ul>
+                                    <li><a href="perfilUsuario.jsp"">Perfil</a></li>
+                                    <li><a href="LogoutServlet">Cerrar Sesión</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div id="containerPg" class="menuLateral">
+                <div class="menu">
+                    <ul>
+                        <li class="page"><a href="index.jsp">Inicio</a></li>
+                        <li class="page">
+                            <a href="catalogoProductos.jsp">Catálogo Productos</a>
+                        </li>
+                        <li class="page"><a href="carritoCompras.jsp">Carrito de Compras</a></li>
+                        <li class="page">
+                            <a href="gestionDePedidos.jsp"</a>
+                        </li>
+                        <li class="page">
+                            <a href="administradorPantalla.jsp" >Administrador</a>
+                        </li>
+                        <li class="page"><a href="inicioDeSesion.jsp">Iniciar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="containerPg" class="contenido">
+                <div class="tarjeta-registro">
+                    <h2>Registrarse</h2>
+
+                    <form action="UsuarioServlet" method="POST">
+                        <div class="grupo-form">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required />
+                        </div>
+
+                        <div class="grupo-form">
+                            <label for="correo">Correo Electrónico</label>
+                            <input
+                                type="email"
+                                id="correo"
+                                name="correo"
+                                placeholder="Example@example.com"
+                                required />
+                        </div>
+
+                        <div class="grupo-form">
+                            <label for="telefono">Numero Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" required />
+                        </div>
+                        
+                        <!-- Hacerlo o botno para que pueda poner la dirección o hacerlo 
+                        mas grande -->
+                        
+                        <div class="grupo-form">
+                            <label for="direccion">Dirección Envío</label>
+                            <input type="text" id="direccion" name="direccion" required />
+                        </div>
+
+                        <div class="grupo-form">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="contrasena" name="contrasena" required />
+                        </div>
+
+                        <div class="grupo-form">
+                            <label for="confirm_password">Confirmar Contraseña</label>
+                            <input type="password" id="confirm_password" name="confirm_password" required />
+                        </div>
+
+                        <div class="botones-registro">
+                            <button
+                                type="button"
+                                class="btn-cancelar"
+                                onclick="window.location.href = '<%= request.getContextPath() %>/index.jsp'">
+                                Cancelar
+                            </button>
+                            <button type="submit" class="btn-crear">Crear Cuenta</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="containerPg" class="piePagina">
+                <h3 class="materia">Aplicaciones Web - Unidad 2</h3>
+            </div>
+        </div>
+    </body>
+</html>

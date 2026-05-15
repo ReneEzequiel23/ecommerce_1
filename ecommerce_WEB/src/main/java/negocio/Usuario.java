@@ -42,6 +42,18 @@ public class Usuario {
         this.activo=true;
     }
 
+    public Usuario(int id, String nombre, String correo, String contrasena, String telefono) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.telefono = telefono;
+        this.rol = "cliente";
+        this.activo=true;
+    }
+    
+    
+
     public int getId() {
         return id;
     }

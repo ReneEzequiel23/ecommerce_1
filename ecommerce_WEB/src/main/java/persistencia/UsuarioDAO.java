@@ -125,6 +125,25 @@ public class UsuarioDAO {
             System.out.println("Error al insertar el Usuario: " + e.getMessage());
         }
     }
+    
+    public void insertarRegistro(Usuario p) {
+        String sql = "INSERT INTO Usuario (nombre, correo, contraseña, telefono) VALUES (?, ?, ?, ?)";
+
+        try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            // Llenamos los signos de interrogación con los datos del objeto
+            ps.setString(1, p.getNombre());
+            ps.setString(2, p.getCorreo());
+            ps.setString(3, p.getContrasena());
+            ps.setString(4, p.getTelefono());
+
+            ps.executeUpdate(); // Ejecutamos la inserción
+            System.out.println("Usuario insertado correctamente.");
+
+        } catch (SQLException e) {
+            System.out.println("Error al insertar el Usuario: " + e.getMessage());
+        }
+    }
 
     // Método para ACTUALIZAR un usuario existente
     public void actualizar(Usuario p) {

@@ -7,9 +7,10 @@
 <%@page import="negocio.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JSP Page</title><title>Administrar usuarios</title>
         <link rel="stylesheet" href="css/administrarUsuarios.css" />
         <link rel="stylesheet" href="css/styles.css" />
@@ -88,11 +89,11 @@
                                 <td class="celda-acciones">
                                     <button type="button" class="btn-estado"
                                             onclick="if (confirm('¿Seguro que deseas cambiarle el estado a este Usuario?'))
-                                      window.location.href = 'UsuarioServlet?accion=editar&id=<%= p.getId()%>'"
+                                      window.location.href = 'AdministrarUsuarioServlet?accion=editar&id=<%= p.getId()%>'"
                                             >Cambiar Estado</button>
                                     <button type="button" class="btn-eliminar"
                                             onclick="if (confirm('¿Seguro que deseas eliminar este Usuario?'))
-                                      window.location.href = 'UsuarioServlet?accion=eliminar&id=<%= p.getId()%>'"
+                                      window.location.href = 'AdministrarUsuarioServlet?accion=eliminar&id=<%= p.getId()%>'"
                                     >Eliminar</button>
                                 </td>
                             </tr>
