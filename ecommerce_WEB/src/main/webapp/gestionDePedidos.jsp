@@ -2,53 +2,38 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Carrito de Compras</title>
-      <link rel="stylesheet" href="css/styles.css" />
+      <link rel="stylesheet" href="css/PantallaOrigen.css" />
       <link rel="stylesheet" href="css/pedidos.css" />
     </head>
-
     <body>
-        <div class="containPP">
-            <div id="containerPg" class="barraSuperior">
-                <nav>
-                    <ul>
-                        <li>
-                            <div class="perfil">
-                                <input type="image" src="../Img/perfil.png" alt="Perfil" />
-                                <ul>
-                                    <li><a href="perfilUsuario.jsp">Perfil</a></li>
-                                    <li><a href="LogoutServlet">Cerrar Sesión</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div id="containerPg" class="menuLateral">
-              <div class="menu">
-                    <ul>
-                        <li class="page"><a href="index.jsp">Inicio</a></li>
-                        <li class="page">
-                            <a href="catalogoProductos.jsp">Catálogo Productos</a>
-                        </li>
-                        <li class="page"><a href="carritoCompras.jsp">Carrito de Compras</a></li>
-                        <li class="page">
-                            <a href="gestionDePedidos.jsp" style="background-color: #999">Gestión de Pedidos</a>
-                        </li>
-                        <li class="page">
-                            <a href="administradorPantalla.jsp" >Administrador</a>
-                        </li>
-                    </ul>
+        <header>
+            <button id="toggleSidebar">☰ Menu</button>
+            <div class="profile">
+                <img src="Img/perfil.png" id="profilePic" alt="Perfil" />
+                <div id="profileMenu" class="dropdown hidden">
+                    <a href="/inicioDeSesion.jsp">Iniciar Sesión</a>
+                    <a href="perfilUsuario.jsp">Perfil</a>
+                    <a href="LogoutServlet">Cerrar Sesión</a>
                 </div>
             </div>
+        </header>
 
-            <div id="containerPg" class="contenido area-pedidos">
-                <div class="caja-pedidos">
+        <div id="sidebar" class="sidebar">
+            <a href="PantallaAgregar.html">Inicio</a>
+            <a href="catalogoProductos.jsp">Catálogo</a>
+            <a href="carritoCompras.jsp">Carrito</a>
+            <a href="gestionDePedidos.jsp">Pedidos</a>
+            <a href="administradorPantalla.jsp">Administrador</a>
+        </div>
+
+        <main>
+            <div class="caja-pedidos" style="background: #3d3d3d;">
+                <form action="" method="GET">
                     <table class="tabla-pedidos">
                         <thead>
                             <tr>
@@ -58,7 +43,6 @@
                                 <th>Estado</th>
                             </tr>
                         </thead>
-                        
                         <tbody>
                             <%
                                 // Recuperamos la lista que nos mandó el Servlet
@@ -71,8 +55,8 @@
                             <tr>
                                 <td><%= p.getId()%></td>
                                 <td><%= p.getFecha()%></td>
-                                <td><%= p.getTotal() %></td>
-                                <td>$<%= p.getEstado() %></td>
+                                <td><%= p.getTotal()%></td>
+                                <td>$<%= p.getEstado()%></td>
                             </tr>
                             <%
                                 } // Fin del for
@@ -82,12 +66,11 @@
                             <% }%>
                         </tbody>
                     </table>
-                </div>
+                </form>
             </div>
+        </main>
 
-            <div id="containerPg" class="piePagina">
-                 <h3 class="materia">Aplicaciones Web - Unidad 2</h3>
-            </div>
-        </div>
+        <footer class="footer">Aplicaciones Web - Unidad 2</footer>
+        <script src="javascript/MenuScript.js"></script>
     </body>
 </html>
