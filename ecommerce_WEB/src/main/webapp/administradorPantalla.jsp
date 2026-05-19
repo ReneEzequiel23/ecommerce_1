@@ -25,9 +25,9 @@
 
     <div id="sidebar" class="sidebar">
         <a href="PantallaAgregar.html">Inicio</a>
-        <a href="gestionarCatalogoProductos.jsp">Catálogo</a>
-        <a href="carritoCompras.jsp">Carrito</a>
-        <a href="gestionDePedidos.jsp">Pedidos</a>
+        <a href="gestionarCatalogoProductos.jsp">Catálogo de Productos</a>
+        <a href="carritoCompras.jsp">Carrito de Compras</a>
+        <a href="gestionDePedidos.jsp">Gestion de Pedidos</a>
         <a href="administradorPantalla.jsp">Administrador</a>
     </div>
 
