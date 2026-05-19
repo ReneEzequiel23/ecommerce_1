@@ -25,7 +25,7 @@
 
     <div id="sidebar" class="sidebar">
         <a href="PantallaAgregar.html">Inicio</a>
-        <a href="catalogoProductos.jsp">Catálogo</a>
+        <a href="gestionarCatalogoProductos.jsp">Catálogo</a>
         <a href="carritoCompras.jsp">Carrito</a>
         <a href="gestionDePedidos.jsp">Pedidos</a>
         <a href="administradorPantalla.jsp">Administrador</a>
@@ -43,7 +43,7 @@
             </div>
             <div class="grupo-form">
                 <button style="background-color: #505077; border: 2px solid #21213b;color: #eae1e3;"
-                    onclick="window.location.href = '/ecommerce_WEB/ProductoServlet'"
+                    onclick="window.location.href = 'gestionarCatalogoProductos.jsp'"
                     class="btn-gestion">
                     Catalogo de Productos
                 </button>

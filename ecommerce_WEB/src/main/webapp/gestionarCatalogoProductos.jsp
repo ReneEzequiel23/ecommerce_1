@@ -9,6 +9,7 @@
         <title>Administrar Productos</title>
         <link rel="stylesheet" href="css/gestionarProductos.css" />
         <link rel="stylesheet" href="css/styles.css" />
+        
     </head>
     <body>
         <!-- Pagina Principal -->
@@ -67,40 +68,10 @@
                                 <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <%
-                                // Recuperamos la lista que nos mandó el Servlet
-                                List<Producto> productos = (List<Producto>) request.getAttribute("listaProductos");
-
-                                // Si la lista no es nula, la recorremos
-                                if (productos != null && !productos.isEmpty()) {
-                                    for (Producto p : productos) {
-                            %>
-                            <tr>
-                                <td><%= p.getId()%></td>
-                                <td><%= p.getNombre()%></td>
-                                <td>$<%= p.getPrecio()%></td>
-                                <td><%= p.getExistencia()%></td>
-                                <td class="celda-acciones">
-                                    <button type="button" class="btn-estado" 
-                                            onclick="window.location.href = 'ProductoServlet?accion=editar&id=<%= p.getId()%>'">
-                                        Editar
-                                    </button>
-                                    <button type="button" class="btn-eliminar" style="background-color: #d9534f; color: white;"
-                                            onclick="if (confirm('¿Seguro que deseas eliminar este producto?'))
-                                      window.location.href = 'ProductoServlet?accion=eliminar&id=<%= p.getId()%>'">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                            <%
-                                } // Fin del for
-                            } else {
-                            %>
-                            <tr><td colspan="5" style="text-align: center;">No hay productos registrados.</td></tr>
-                            <% }%>
+                        <tbody id="cuerpoTabla">
                         </tbody>
                     </table>
+                    <script src="javascript/catalogoAdmin.js"></script>
                 </div>
             </div>
 
