@@ -5,7 +5,6 @@
 
 const API_URL = '/ecommerce_WEB/api/productos';
 
-// Extraemos el ID de la URL (ej. editarProducto.jsp?id=5)
 const parametrosURL = new URLSearchParams(window.location.search);
 const idProducto = parametrosURL.get('id');
 
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    // --- FASE 1: LLENAR EL FORMULARIO ---
     try {
         const respuesta = await fetch(`${API_URL}/${idProducto}`);
         if (respuesta.ok) {
@@ -38,7 +36,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("Error cargando datos:", error);
     }
 
-    // --- FASE 2: GUARDAR LOS CAMBIOS ---
     const formulario = document.getElementById('formularioEditar');
     formulario.addEventListener('submit', async (evento) => {
         evento.preventDefault(); 

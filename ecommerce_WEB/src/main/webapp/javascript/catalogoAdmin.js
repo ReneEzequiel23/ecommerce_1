@@ -5,52 +5,43 @@
 
 const API_URL = '/ecommerce_WEB/api/productos';
 
-// 1. Verificamos si el archivo JS realmente se está ejecutando
-console.log("--- INICIANDO SCRIPT DE CATÁLOGO ---");
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("El DOM cargó completamente. Ejecutando cargarProductos()...");
+    console.log("El DOM cargó completamente. Ejecutando cargarProductos()");
     cargarProductos();
 });
 
 async function cargarProductos() {
     const cuerpoTabla = document.getElementById('cuerpoTabla');
     
-    // 2. Revisamos si JavaScript encuentra tu tabla en el JSP
-    console.log("Elemento cuerpoTabla encontrado:", cuerpoTabla);
     if (!cuerpoTabla) {
         console.error("¡ALERTA ROJA! No se encontró el id='cuerpoTabla' en tu JSP. Revisa el HTML.");
         return; // Detiene la ejecución para que no colapse
     }
 
     try {
-        // 3. Revisamos la petición al servidor
         console.log("Haciendo petición Fetch a la URL:", API_URL);
         const respuesta = await fetch(API_URL);
         console.log("Estado de la respuesta HTTP:", respuesta.status);
 
-        // 4. Leemos el texto puro antes de intentar convertirlo a JSON
-        // Esto es clave por si Java está enviando una página de error en lugar de datos
+        // si Java está enviando una página de error en lugar de datos
         const textoPuro = await respuesta.text();
-        console.log("Texto puro recibido del servidor:", textoPuro);
 
         if (!respuesta.ok) {
             throw new Error("El servidor respondió con error " + respuesta.status);
         }
 
-        // 5. Intentamos convertir a JSON
+        // convertir a JSON
         const productos = JSON.parse(textoPuro);
-        console.log("Productos convertidos a JavaScript (Array):", productos);
 
         cuerpoTabla.innerHTML = '';
 
         if (productos.length === 0) {
-            console.warn("La consulta fue exitosa, pero el arreglo de productos está vacío []");
             cuerpoTabla.innerHTML = '<tr><td colspan="5" style="text-align:center;">No hay productos registrados en MySQL.</td></tr>';
             return;
         }
 
-        // 6. Dibujamos la tabla
+        // Dibujamos la tabla
         productos.forEach(producto => {
             const fila = document.createElement('tr');
             fila.innerHTML = `
@@ -64,7 +55,6 @@ async function cargarProductos() {
             `;
             cuerpoTabla.appendChild(fila);
         });
-        console.log("--- TABLA DIBUJADA CON ÉXITO ---");
 
     } catch (error) {
         console.error("Fallo crítico en la ejecución:", error);

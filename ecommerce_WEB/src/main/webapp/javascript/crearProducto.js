@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Verificamos que el formulario exista en la pantalla
     if (formulario) {
         formulario.addEventListener('submit', async (evento) => {
-            // Detenemos la recarga de la página web
             evento.preventDefault(); 
 
             // Recolectamos y transformamos los valores de las cajas de texto
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(nuevoProducto) 
                 });
 
-                // Si Java nos responde con un 201 Created (que configuraste en tu backend)
                 if (respuesta.status === 201) { 
                     alert("Producto agregado al catálogo correctamente.");
                     // Redirigimos al catálogo para ver el nuevo registro
