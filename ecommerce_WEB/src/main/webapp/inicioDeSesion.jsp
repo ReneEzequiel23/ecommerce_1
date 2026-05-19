@@ -18,7 +18,7 @@
             <img src="Img/perfil.png" id="profilePic" alt="Perfil" />
             <div id="profileMenu" class="dropdown hidden">
                 <a href="inicioDeSesion.jsp">Iniciar Sesión</a>
-                <a href="perfilUsuario.jsp">Perfil</a>
+                <a href="PerfilUsuario.jsp">Perfil</a>
                 <a href="LogoutServlet">Cerrar Sesión</a>
             </div>
         </div>
@@ -32,7 +32,7 @@
         <a href="administradorPantalla.jsp">Administrador</a>
     </div>
 
-    <main>
+    <main style="display: flex;justify-content: center;align-items: center;">
         <div class="tarjeta-login" style="background: #3d3d3d;">
             <h2>Iniciar Sesión</h2>
             <form action="LoginServlet" method="POST">

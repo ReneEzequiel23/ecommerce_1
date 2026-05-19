@@ -25,8 +25,8 @@
                 <img src="Img/perfil.png" id="profilePic" alt="Perfil" />
                 <div id="profileMenu" class="dropdown hidden">
                     <a href="inicioDeSesion.jsp">Iniciar Sesión</a>
-                    <a href="perfilUsuario.jsp">Perfil</a>
-                    <a href="LogoutServlet">Cerrar Sesión</a>
+                <a href="PerfilUsuario.jsp">Perfil</a>
+                <a href="LogoutServlet">Cerrar Sesión</a>
                 </div>
             </div>
         </header>

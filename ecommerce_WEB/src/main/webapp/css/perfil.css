@@ -1,8 +1,3 @@
-div.contenido {
-  display: flex;
-
-  background-color: #f7f7f7;
-}
 
 /* Tarjeta del formulario */
 .tarjeta-perfil {
@@ -37,7 +32,7 @@ div.contenido {
 }
 
 /* Botones y enlaces */
-.btn-actualizar {
+tarjeta-perfil .btn-actualizar {
   width: 35%;
   padding: 10px;
   left: 65%;

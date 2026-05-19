@@ -6,7 +6,7 @@
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Carrito de Compras</title>
+      <title>Gestión de Pedidos</title>
       <link rel="stylesheet" href="css/PantallaOrigen.css" />
       <link rel="stylesheet" href="css/pedidos.css" />
     </head>
@@ -16,7 +16,7 @@
             <div class="profile">
                 <img src="Img/perfil.png" id="profilePic" alt="Perfil" />
                 <div id="profileMenu" class="dropdown hidden">
-                    <a href="/inicioDeSesion.jsp">Iniciar Sesión</a>
+                    <a href="inicioDeSesion.jsp">Iniciar Sesión</a>
                     <a href="perfilUsuario.jsp">Perfil</a>
                     <a href="LogoutServlet">Cerrar Sesión</a>
                 </div>
@@ -25,14 +25,15 @@
 
         <div id="sidebar" class="sidebar">
             <a href="PantallaAgregar.html">Inicio</a>
-            <a href="catalogoProductos.jsp">Catálogo</a>
-            <a href="carritoCompras.jsp">Carrito</a>
-            <a href="gestionDePedidos.jsp">Pedidos</a>
+            <a href="catalogoProductos.jsp">Catálogo de Productos</a>
+            <a href="carritoCompras.jsp">Carrito de Compras</a>
+            <a href="gestionDePedidos.jsp">Gestion de Pedidos</a>
             <a href="administradorPantalla.jsp">Administrador</a>
         </div>
 
         <main>
-            <div class="caja-pedidos" style="background: #3d3d3d;">
+            <h2 style="padding: 20px;">Pedidos Hechos</h2>
+            <div class="caja-pedidos" style="background: #3d3d3d; ">
                 <form action="" method="GET">
                     <table class="tabla-pedidos">
                         <thead>
