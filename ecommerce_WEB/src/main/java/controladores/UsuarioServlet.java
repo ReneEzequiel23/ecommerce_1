@@ -41,8 +41,8 @@ public class UsuarioServlet extends HttpServlet {
         
         if (accion == null || accion.isEmpty() || accion.equals("listar")) {
             List<Usuario> lista = dao.listarTodos();
-            request.setAttribute("listaUsuarios", lista);
-            
+            request.setAttribute("listaUsuariosaDMIN", lista);
+            request.getRequestDispatcher("administrarUsuarios.jsp").forward(request, response);
 
         } else if (accion.equals("eliminar")) {
             int id = Integer.parseInt(request.getParameter("id"));

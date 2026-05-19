@@ -60,51 +60,53 @@
                 <h2 class="titulo-admin">Administrar Usuarios</h2>
 
                 <div class="caja-tabla-admin">
-                    <table class="tabla-admin">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Nombre</th>
-                                <th>Correo Electrónico</th>
-                                <th>Rol</th>
-                                <th>Estado de Cuenta</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                // Recuperamos la lista que nos mandó el Servlet
-                                List<Usuario> usuarios = (List<Usuario>) request.getAttribute("listaUsuarios");
+                    <form action="UsuarioServlet" method="GET">
+                        <table class="tabla-admin">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Correo Electrónico</th>
+                                    <th>Rol</th>
+                                    <th>Estado de Cuenta</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    // Recuperamos la lista que nos mandó el Servlet
+                                    List<Usuario> usuariosA = (List<Usuario>) request.getAttribute("listaUsuariosaDMIN");
 
-                                // Si la lista no es nula, la recorremos
-                                if (usuarios != null && !usuarios.isEmpty()) {
-                                    for (Usuario p : usuarios) {
-                            %>
-                            <tr>
-                                <td><%= p.getId()%></td>
-                                <td><%= p.getNombre()%></td>
-                                <td><%= p.getCorreo()%></td>
-                                <td><%= p.getRol()%></td>
-                                <td><%= p.isActivo()%></td>
-                                <td class="celda-acciones">
-                                    <button type="button" class="btn-estado"
-                                            onclick="if (confirm('¿Seguro que deseas cambiarle el estado a este Usuario?'))
-                                      window.location.href = 'AdministrarUsuarioServlet?accion=editar&id=<%= p.getId()%>'"
-                                            >Cambiar Estado</button>
-                                    <button type="button" class="btn-eliminar"
-                                            onclick="if (confirm('¿Seguro que deseas eliminar este Usuario?'))
-                                      window.location.href = 'AdministrarUsuarioServlet?accion=eliminar&id=<%= p.getId()%>'"
-                                    >Eliminar</button>
-                                </td>
-                            </tr>
-                            <%
-                                } // Fin del for
-                            } else {
-                            %>
-                            <tr><td colspan="5" style="text-align: center;">No hay productos registrados.</td></tr>
-                            <%} %>
-                        </tbody>
-                    </table>
+                                    // Si la lista no es nula, la recorremos
+                                    if (usuariosA != null && !usuariosA.isEmpty()) {
+                                        for (Usuario p : usuariosA) {
+                                %>
+                                <tr>
+                                    <td><%= p.getId()%></td>
+                                    <td><%= p.getNombre()%></td>
+                                    <td><%= p.getCorreo()%></td>
+                                    <td><%= p.getRol()%></td>
+                                    <td><%= p.isActivo()%></td>
+                                    <td class="celda-acciones">
+                                        <button type="button" class="btn-estado"
+                                                onclick="if (confirm('¿Seguro que deseas cambiarle el estado a este Usuario?'))
+                                      window.location.href = 'UsuarioServlet?accion=editar&id=<%= p.getId()%>'"
+                                                >Cambiar Estado</button>
+                                        <button type="button" class="btn-eliminar"
+                                                onclick="if (confirm('¿Seguro que deseas eliminar este Usuario?'))
+                                      window.location.href = 'UsuarioServlet?accion=eliminar&id=<%= p.getId()%>'"
+                                                >Eliminar</button>
+                                    </td>
+                                </tr>
+                                <%
+                                    } // Fin del for
+                                } else {
+                                %>
+                                <tr><td colspan="5" style="text-align: center;">No hay productos registrados.</td></tr>
+                                <%}%>
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
             </div>
 

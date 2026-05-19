@@ -1,13 +1,7 @@
-div.contenido {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f7f7f7;
-}
+
 
 /* Tarjeta del formulario */
 .tarjeta-login {
-  background-color: #f7f7f7;
   border: 2px solid #ddd;
   padding: 40px;
   width: 500px;
@@ -62,7 +56,8 @@ div.contenido {
 
 .btn-regresar {
   padding: 8px 30px;
-  background-color: #efefef;
-  border: 2px solid #ccc;
+  background-color: #c92c3e;
+  border: 2px solid #a62b39;
+  color: #eae1e3;
   cursor: pointer;
 }

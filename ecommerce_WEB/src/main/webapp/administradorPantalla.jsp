@@ -53,7 +53,7 @@
           <h2 class="titulo-contenido">Gestionar</h2>
           <div class="grupo-form">
             <button
-              onclick="window.location.href = '/ecommerce_WEB/AdministrarUsuarioServlet'"
+              onclick="window.location.href = '/ecommerce_WEB/UsuarioServlet'"
               class="btn-gestion">
               Administrar Usuarios
             </button>
