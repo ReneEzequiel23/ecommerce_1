@@ -11,108 +11,88 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JSP Page</title><title>Administrar usuarios</title>
+        <title>Administrar usuarios</title>
         <link rel="stylesheet" href="css/administrarUsuarios.css" />
-        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/PantallaOrigen.css" />
     </head>
     <body>
         <!-- Pagina Principal -->
         <!-- Edgar Arturo Acevedo Acosta 245769
               Rene Ezequiel Figueroa López 228691 -->
-        <div class="containPP">
-            <div id="containerPg" class="barraSuperior">
-                <nav>
-                    <ul>
-                        <li>
-                            <div class="perfil">
-                                <input type="image" src="Img/perfil.png" alt="Perfil" />
-                                <ul>
-                                    <!-- Tengo que Arreglar Este Css por que Solo se Activa
-                                       Cuando Tienes Presionado el Click en el Perfil 
-                                       y Aparece a la Izquierda xdddd-->
-                                    <li><a href="perfilUsuario.html">Perfil</a></li>
-                                    <li><a href="inicioDeSesion.jsp">Cerrar Sesión</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div id="containerPg" class="menuLateral">
-                <div class="menu">
-                    <ul>
-                        <li class="page"><a href="index.jsp">Inicio</a></li>
-                        <li class="page">
-                            <a href="catalogoProductos.html">Catalogo de Productos</a>
-                        </li>
-                        <li class="page"><a href="carritoCompras.html">Carrito de Compras</a></li>
-                        <li class="page">
-                            <a href="gestionDePedidos.html">Gestión de Pedidos</a>
-                        </li>
-                        <li class="page">
-                            <a href="administradorPantalla.html">Administrador</a>
-                        </li>
-                        <li class="page"><a href="inicioDeSesion.html">Iniciar Sesión</a></li>
-                    </ul>
+        <header>
+            <button id="toggleSidebar">☰ Menu</button>
+            <div class="profile">
+                <img src="Img/perfil.png" id="profilePic" alt="Perfil" />
+                <div id="profileMenu" class="dropdown hidden">
+                    <a href="inicioDeSesion.jsp">Iniciar Sesión</a>
+                    <a href="perfilUsuario.jsp">Perfil</a>
+                    <a href="LogoutServlet">Cerrar Sesión</a>
                 </div>
             </div>
-            <div id="containerPg" class="contenido area-admin-usuarios">
-                <h2 class="titulo-admin">Administrar Usuarios</h2>
+        </header>
 
-                <div class="caja-tabla-admin">
-                    <form action="UsuarioServlet" method="GET">
-                        <table class="tabla-admin">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Correo Electrónico</th>
-                                    <th>Rol</th>
-                                    <th>Estado de Cuenta</th>
-                                    <th>Acción</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%
-                                    // Recuperamos la lista que nos mandó el Servlet
-                                    List<Usuario> usuariosA = (List<Usuario>) request.getAttribute("listaUsuariosaDMIN");
-
-                                    // Si la lista no es nula, la recorremos
-                                    if (usuariosA != null && !usuariosA.isEmpty()) {
-                                        for (Usuario p : usuariosA) {
-                                %>
-                                <tr>
-                                    <td><%= p.getId()%></td>
-                                    <td><%= p.getNombre()%></td>
-                                    <td><%= p.getCorreo()%></td>
-                                    <td><%= p.getRol()%></td>
-                                    <td><%= p.isActivo()%></td>
-                                    <td class="celda-acciones">
-                                        <button type="button" class="btn-estado"
-                                                onclick="if (confirm('¿Seguro que deseas cambiarle el estado a este Usuario?'))
-                                      window.location.href = 'UsuarioServlet?accion=editar&id=<%= p.getId()%>'"
-                                                >Cambiar Estado</button>
-                                        <button type="button" class="btn-eliminar"
-                                                onclick="if (confirm('¿Seguro que deseas eliminar este Usuario?'))
-                                      window.location.href = 'UsuarioServlet?accion=eliminar&id=<%= p.getId()%>'"
-                                                >Eliminar</button>
-                                    </td>
-                                </tr>
-                                <%
-                                    } // Fin del for
-                                } else {
-                                %>
-                                <tr><td colspan="5" style="text-align: center;">No hay productos registrados.</td></tr>
-                                <%}%>
-                            </tbody>
-                        </table>
-                    </form>
-                </div>
-            </div>
-
-            <div id="containerPg" class="piePagina">
-                <h3 class="materia">Aplicaciones Web - Unidad 2</h3>
-            </div>
+        <div id="sidebar" class="sidebar">
+            <a href="PantallaAgregar.html">Inicio</a>
+            <a href="catalogoProductos.jsp">Catálogo</a>
+            <a href="carritoCompras.jsp">Carrito</a>
+            <a href="gestionDePedidos.jsp">Pedidos</a>
+            <a href="administradorPantalla.jsp">Administrador</a>
         </div>
+
+        <main>
+            <h2 class="titulo-admin" style="color: #eae1e3;">Administrar Usuarios</h2>
+            <div class="caja-tabla-admin">
+                <form action="UsuarioServlet" method="GET">
+                    <table class="tabla-admin">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Correo Electrónico</th>
+                                <th>Rol</th>
+                                <th>Estado de Cuenta</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                // Recuperamos la lista que nos mandó el Servlet
+                                List<Usuario> usuariosA = (List<Usuario>) request.getAttribute("listaUsuariosaDMIN");
+
+                                // Si la lista no es nula, la recorremos
+                                if (usuariosA != null && !usuariosA.isEmpty()) {
+                                    for (Usuario p : usuariosA) {
+                            %>
+                            <tr>
+                                <td style="color: #1d1d2a"><%= p.getId()%></td>
+                                <td style="color: #1d1d2a"><%= p.getNombre()%></td>
+                                <td style="color: #1d1d2a"><%= p.getCorreo()%></td>
+                                <td style="color: #1d1d2a"><%= p.getRol()%></td>
+                                <td style="color: #1d1d2a"><%= p.isActivo()%></td>
+                                <td class="celda-acciones">
+                                    <button type="button" class="btn-estado"
+                                            onclick="if (confirm('¿Seguro que deseas cambiarle el estado a este Usuario?'))
+                            window.location.href = 'UsuarioServlet?accion=editar&id=<%= p.getId()%>'"
+                                            >Cambiar Estado</button>
+                                    <button type="button" class="btn-eliminar"
+                                            onclick="if (confirm('¿Seguro que deseas eliminar este Usuario?'))
+                            window.location.href = 'UsuarioServlet?accion=eliminar&id=<%= p.getId()%>'"
+                                            >Eliminar</button>
+                                </td>
+                            </tr>
+                            <%
+                                } // Fin del for
+                            } else {
+                            %>
+                            <tr><td colspan="5" style="text-align: center; color: #1d1d2a">No hay productos registrados.</td></tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </main>
+
+        <footer class="footer">Aplicaciones Web - Unidad 2</footer>
+        <script src="javascript/MenuScript.js"></script>
     </body>
 </html>
