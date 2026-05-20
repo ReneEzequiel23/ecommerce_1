@@ -63,7 +63,7 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody id="cuerpoTabla"></tbody>
+                    <tbody id="cuerpoTabla" style="color: #1d1d2a;"></tbody>
                 </table>
                 <script src="javascript/catalogoAdmin.js"></script>
             </div>
