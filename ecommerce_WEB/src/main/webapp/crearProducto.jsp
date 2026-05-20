@@ -36,7 +36,7 @@
             <div class="tarjeta-producto" style="background: #3d3d3d; padding: 30px; width: 600px">
                 <h2>Crear Nuevo Libro</h2>
 
-                <form id="formularioCrear">
+                <form action="#" method="POST">
                     <div class="grupo-form">
                         <label for="nombre">Título del Libro</label>
                         <input type="text" id="nombre" name="nombre" required style="padding: 8px"/>
