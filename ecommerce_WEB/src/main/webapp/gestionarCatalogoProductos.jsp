@@ -51,6 +51,20 @@
                 onclick="window.location.href = 'crearProducto.jsp'">
                 + Crear Nuevo Producto
             </button>
+            </br>
+            <button
+                class="btn-agregar"
+                style="
+        margin-bottom: 15px;
+        background-color: #4f7d4f;
+        color: white;
+        padding: 12px 40px;
+        border: 2px solid #2e492d;
+        cursor: pointer;
+                "
+                onclick="window.location.href = 'crearCategoria.jsp'">
+                + Crear Nueva Categoria
+            </button>
 
             <div class="caja-tabla-admin">
                 <table class="tabla-admin" style="width: 100%; text-align: left">

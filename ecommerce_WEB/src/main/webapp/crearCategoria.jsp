@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="css/stylesInicioSesion.css" />
     </head>
     <body>
+        <!-- Pantalla administrador -->
+        <!-- Edgar Arturo Acevedo Acosta 245769
+              Rene Ezequiel Figueroa LÃ³pez 228691 -->
         <header>
             <button id="toggleSidebar">☰ Menu</button>
             <div class="profile">
@@ -38,24 +41,20 @@
         <main style="display: flex;justify-content: center;align-items: center;">
             <div class="tarjeta-login" style="background: #3d3d3d;">
                 <h2>Crear Categoria</h2>
-                <form action="#" method="POST">
-                    <% if (request.getAttribute("errorCategoria") != null) {%>
-                    <p style="color: #d9534f; text-align: center; font-weight: bold;">
-                        <%= request.getAttribute("Categoria")%>
-                    </p>
-                    <% }%>
+                <form action="CategoriaServlet" method="POST">                    
                     <div class="grupo-form">
-                        <label for="Nombre">Correo Electrónico</label>
-                        <input type="text" id="correo" name="correo" required />
+                        <label for="Nombre">Nombre Categoria</label>
+                        <input type="text" id="nombre" name="noombre" name="nombre" required />
                     </div>
-                    <button type="submit" class="btn-iniciar" style="width: 50%; background-color: #7ce086;
-  border: 2px solid #4bb856; padding: 12px 40px;">Crear</button>
+                    <button type="submit" class="btn-iniciar" style="width: 40%; background-color: #7ce086;
+                            border: 2px solid #4bb856; padding: 12px 40px; ursor: pointer;">Crear</button>
+                    <br />
+                    <button type="button" onclick="window.location.href = '<%= request.getContextPath()%>/gestionarCatalogoProductos.jsp'" class="btn-regresar"
+                            style="background-color: #c92c3e;border: 2px solid #a62b39;color: #eae1e3; padding: 12px 40px;">
+                        Regresar
+                    </button>
                 </form>
-                <br />
-                <button type="button" onclick="window.location.href = '<%= request.getContextPath()%>/gestionarCatalogoProductos.jsp'" class="btn-regresar"
-                        style="background-color: #c92c3e;border: 2px solid #a62b39;color: #eae1e3; padding: 12px 40px;">
-                    Regresar
-                </button>
+                
             </div>
         </main>
 

@@ -67,20 +67,20 @@
                     <button id="toggleDireccion">Dirección</button>
                     <div id="direccionPanel" class="direccion hidden">
                         <div class="section">
-                            <label>Sección 1:</label>
-                            <input type="text" placeholder="Texto 1">
+                            <label>Calle:</label>
+                            <input type="text"id="calle" required />
                         </div>
                         <div class="section">
-                            <label>Sección 2:</label>
-                            <input type="text" placeholder="Texto 2">
+                            <label>Ciudad</label>
+                            <input type="text"id="ciudad" required />
                         </div>
                         <div class="section">
-                            <label>Sección 3:</label>
-                            <input type="text" placeholder="Texto 3">
+                            <label>Estado</label>
+                            <input type="text" id="estado" required >
                         </div>
                         <div class="section">
-                            <label>Sección 4:</label>
-                            <input type="text" placeholder="Texto 4">
+                            <label>Codigo Postal</label>
+                            <input type="text" id="codigo postal" required />
                         </div>
                     </div>
                     <div class="grupo-form">
@@ -104,6 +104,7 @@
                                     style="background-color: #4b8166;border: 2px solid #1f4d40;color: #eae1e3;
                                     padding: 8px 30px;cursor: pointer;"
                                     >Crear Cuenta</button>
+                            <--<!-- Aqui sera que cuando lo agregue se abra otra pantalla para agregarle la direccion -->
                     </div>
                 </form>
             </div>

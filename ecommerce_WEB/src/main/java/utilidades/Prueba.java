@@ -6,7 +6,9 @@ package utilidades;
 
 import java.sql.Connection;
 import java.util.List;
+import negocio.Categoria;
 import negocio.Usuario;
+import persistencia.CategoriaDAO;
 import persistencia.UsuarioDAO;
 
 /**
@@ -22,14 +24,13 @@ public class Prueba {
     Connection con = utilidades.ConexionBD.getConexion();
     if (con != null) {
         System.out.println("Todo listo para empezar con los DAOs y BOs.");
-        UsuarioDAO da=new UsuarioDAO();
+        CategoriaDAO da=new CategoriaDAO();
         System.out.println(da.listarTodos());
-        List<Usuario> list= da.listarTodos();
+        List<Categoria> list= da.listarTodos();
         Usuario us;
-        for(Usuario u:list){
+        for(Categoria u:list){
             System.out.println(u.getNombre());
-            us=da.obtenerPorId(u.getId());
-            System.out.println(us.getId());
+            System.out.println(u.getId());
         }
     }
     
