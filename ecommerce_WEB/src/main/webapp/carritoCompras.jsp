@@ -38,7 +38,7 @@
         <main>
             <h2>Carrito de Compras</h2>
             <div class="caja-carrito">
-                <form action="#" method="GET">
+                <form id="formularioCarrito">
                     <table class="tabla-carrito" style="background: #3d3d3d;">
                         <thead>
                             <tr>
@@ -48,31 +48,8 @@
                                 <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Harry Potter: Saga Completa</td>
-                                <td>2500.00</td>
-                                <td>1</td>
-                                <td>
-                                    <button type="button" class="btn-eliminar">Eliminar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Shintara datta Ken Slime</td>
-                                <td>1500.00</td>
-                                <td>1</td>
-                                <td>
-                                    <button type="button" class="btn-eliminar">Eliminar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>El Principito</td>
-                                <td>125.54</td>
-                                <td>1</td>
-                                <td>
-                                    <button type="button" class="btn-eliminar">Eliminar</button>
-                                </td>
-                            </tr>
+                        <tbody id="cuerpoCarrito">
+                            
                         </tbody>
                     </table>
                 </form>
@@ -81,7 +58,7 @@
             <div class="seccion-pago">
                 <div class="fila-total">
                     <span class="etiqueta-total">Costo Final</span>
-                    <input type="text" value="4,125.54" readonly class="input-total" disabled="true" style="padding: 8px; 
+                    <input type="text" id="costoTotal" value="$0.00" readonly class="input-total" disabled="true" style="padding: 8px; 
                            background-color: white"/>
                 </div>
                 <button
@@ -95,5 +72,6 @@
 
         <footer class="footer">Aplicaciones Web - Unidad 2</footer>
         <script src="javascript/MenuScript.js"></script>
+        <script src="javascript/carrito.js"></script>
     </body>
 </html>
