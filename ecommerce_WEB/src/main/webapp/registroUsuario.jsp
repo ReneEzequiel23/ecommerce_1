@@ -13,6 +13,7 @@
         <title>Registro de usuario</title>
         <link rel="stylesheet" href="css/PantallaOrigen.css" />
         <link rel="stylesheet" href="css/stylesInicioSesion.css" />
+        <link rel="stylesheet" href="css/direccionStyle.css" />
     </head>
     <body>
         <!-- Registro de usuario -->
@@ -63,9 +64,24 @@
                     <!-- Hacerlo o botno para que pueda poner la dirección o hacerlo 
                                     mas grande -->
 
-                    <div class="grupo-form">
-                        <label for="direccion">Dirección Envío</label>
-                        <input type="text" id="direccion" name="direccion" required />
+                    <button id="toggleDireccion">Dirección</button>
+                    <div id="direccionPanel" class="direccion hidden">
+                        <div class="section">
+                            <label>Sección 1:</label>
+                            <input type="text" placeholder="Texto 1">
+                        </div>
+                        <div class="section">
+                            <label>Sección 2:</label>
+                            <input type="text" placeholder="Texto 2">
+                        </div>
+                        <div class="section">
+                            <label>Sección 3:</label>
+                            <input type="text" placeholder="Texto 3">
+                        </div>
+                        <div class="section">
+                            <label>Sección 4:</label>
+                            <input type="text" placeholder="Texto 4">
+                        </div>
                     </div>
                     <div class="grupo-form">
                         <label for="password">Contraseña</label>
@@ -94,6 +110,7 @@
         </main>
 
         <footer class="footer">Aplicaciones Web - Unidad 2</footer>
+        <script src="javascript/direccionJs.js"></script>
         <script src="javascript/MenuScript.js"></script>
     </body>
 </html>
