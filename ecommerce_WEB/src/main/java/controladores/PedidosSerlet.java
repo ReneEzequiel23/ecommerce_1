@@ -11,6 +11,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
+import negocio.Pedido;
+import persistencia.PedidoDAO;
 
 /**
  *
@@ -18,32 +21,8 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "PedidosSerlet", urlPatterns = {"/PedidosSerlet"})
 public class PedidosSerlet extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PedidosSerlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PedidosSerlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+    PedidoDAO dao=new PedidoDAO();
+   
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -57,7 +36,23 @@ public class PedidosSerlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String accion = request.getParameter("accion");
+
+        if (accion == null || accion.isEmpty() || accion.equals("listar")) {
+            List<Pedido> lista = dao.listarTodos();
+            request.setAttribute("listaPedidodos", lista);
+            request.getRequestDispatcher("administrarPedidos.jsp").forward(request, response);
+
+        } else if (accion.equals("editar")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            //Buscar ese libro en la BD
+            Pedido pedidoAEditar = dao.obtenerPorId(id);
+
+            //Mandar el libro a la vista
+            request.setAttribute("pedidos", pedidoAEditar);
+            request.getRequestDispatcher("pedidoAEditar.jsp").forward(request, response);
+        }
     }
 
     /**
@@ -71,7 +66,27 @@ public class PedidosSerlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        request.setCharacterEncoding("UTF-8");
+//
+//        // Obtenemos una acción secreta que enviaremos desde el formulario de editar
+//        String accion = request.getParameter("accion");
+//
+//        String calle = request.getParameter("calle");
+//        String ciudad = request.getParameter("ciudad");
+//        String estado = request.getParameter("estado");
+//        String codigo = request.getParameter("codigo");
+//        int idUsuario = Integer.valueOf(request.getParameter("idUsuario"));
+//        if ("actualizar".equals(accion)) {
+//            int id = Integer.parseInt(request.getParameter("id"));
+//            Pedido direccionEditado = new Pedido(id, calle, ciudad, estado, codigo, idUsuario);
+//            dao.actualizar(direccionEditado);
+//        } else {
+//            // Si no hay acción de actualizar, significa que viene de "crearProducto.jsp"
+//            Pedido nuevoDireccion = new Pedido(0, calle, ciudad, estado, codigo, idUsuario);
+//            dao.insertar(nuevoDireccion);
+//        }
+//        // Redirigimos de vuelta al catálogo
+//        response.sendRedirect("configurarDireccion.jsp");
     }
 
     /**

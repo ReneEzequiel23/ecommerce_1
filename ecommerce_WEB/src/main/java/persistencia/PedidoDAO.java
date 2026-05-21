@@ -22,7 +22,7 @@ import utilidades.ConexionBD;
 public class PedidoDAO {
     
     public List<Pedido> listarTodos(){
-        List<Pedido> listaPedidods= new ArrayList<>();
+        List<Pedido> listaPedidodos= new ArrayList<>();
         String sql= "SELECT * FROM Pedido"; 
         try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
 
@@ -36,12 +36,12 @@ public class PedidoDAO {
                         rs.getInt("direccion_id")
                 );
 
-                listaPedidods.add(p);
+                listaPedidodos.add(p);
             }
         } catch (SQLException e) {
-            System.out.println("Error al listar los productos: " + e.getMessage());
+            System.out.println("Error al listar los pedidos: " + e.getMessage());
         }
-        return listaPedidods;
+        return listaPedidodos;
     }
     
     public Pedido obtenerPorId(int id){

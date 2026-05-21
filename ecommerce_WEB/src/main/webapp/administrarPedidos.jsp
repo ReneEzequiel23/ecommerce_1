@@ -1,14 +1,20 @@
+<%-- 
+    Document   : administrarPedidos
+    Created on : 21 may 2026, 3:15:22 p.m.
+    Author     : edgar
+--%>
+<%@page import="negocio.Usuario"%>
 <%@page import="negocio.Pedido"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Gestión de Pedidos</title>
-      <link rel="stylesheet" href="css/PantallaOrigen.css" />
-      <link rel="stylesheet" href="css/pedidos.css" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Administrar Pedidos</title>
+        <link rel="stylesheet" href="css/PantallaOrigen.css"/>
+        <link rel="stylesheet" href="css/pedidos.css" />
     </head>
     <body>
         <header>
@@ -17,7 +23,7 @@
                 <img src="Img/perfil.png" id="profilePic" alt="Perfil" />
                 <div id="profileMenu" class="dropdown hidden">
                     <a href="inicioDeSesion.jsp">Iniciar Sesión</a>
-                    <a href="perfilUsuario.jsp">Perfil</a>
+                    <a href="PerfilUsuario.jsp">Perfil</a>
                     <a href="LogoutServlet">Cerrar Sesión</a>
                 </div>
             </div>
@@ -38,32 +44,41 @@
                     <table class="tabla-pedidos">
                         <thead>
                             <tr>
+                                <th>Usuario</th>
                                 <th>Pedido</th>
                                 <th>Fecha de compra</th>
                                 <th>Total pagado</th>
                                 <th>Estado</th>
+                                <th>Accion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <%
                                 // Recuperamos la lista que nos mandó el Servlet
-                                List<Pedido> pedidos = (List<Pedido>) request.getAttribute("listaPedidods");
+                                List<Pedido> pedidos = (List<Pedido>) request.getAttribute("listaPedidodos");
 
                                 // Si la lista no es nula, la recorremos
                                 if (pedidos != null && !pedidos.isEmpty()) {
                                     for (Pedido p : pedidos) {
                             %>
                             <tr>
+                                <td><%= p.getUsuario_id()%></td>
                                 <td><%= p.getId()%></td>
                                 <td><%= p.getFecha()%></td>
                                 <td><%= p.getTotal()%></td>
                                 <td>$<%= p.getEstado()%></td>
+                                <td class="celda-acciones">
+                                    <button type="button" class="btn-estado"
+                                            onclick="if (confirm('¿Seguro que deseas cambiarle el estado a este Pedido?'))
+                            window.location.href = 'UsuarioServlet?accion=editar&id=<%= p.getId()%>'"
+                                            >Cambiar Estado</button>
+                                </td>
                             </tr>
                             <%
                                 } // Fin del for
                             } else {
                             %>
-                            <tr><td colspan="5" style="text-align: center;">No hay Pedidos registrados.</td></tr>
+                            <tr><td colspan="6" style="text-align: center;">No hay Pedidos registrados.</td></tr>
                             <% }%>
                         </tbody>
                     </table>

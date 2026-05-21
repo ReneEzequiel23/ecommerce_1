@@ -64,7 +64,7 @@
             </div>
             <div class="grupo-form">
                 <button style="background-color: #505077; border: 2px solid #21213b;color: #eae1e3;"
-                    onclick="window.location.href = 'gestionDePedidos.jsp'"
+                    onclick="window.location.href = 'administrarPedidos.jsp'"
                     class="btn-gestion">
                     Pedidos
                 </button>
