@@ -40,8 +40,6 @@
             <div class="tarjeta-login"  style="background: #3d3d3d; width: 700px;">
                 <h2>Registrarse</h2>
                 <form action="DireccionServlet" method="POST">
-                    <!-- Hacerlo o botno para que pueda poner la dirección o hacerlo 
-                                    mas grande -->
                     <div class="grupo-form">
                         <label>Calle:</label>
                         <input type="text"id="calle" required />
