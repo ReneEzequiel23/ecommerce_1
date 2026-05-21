@@ -8,7 +8,7 @@
 <!doctype html>
 <html lang="es">
     <head>
-        <meta charset="UTF-8" />
+            <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Registro de usuario</title>
         <link rel="stylesheet" href="css/PantallaOrigen.css" />
@@ -61,28 +61,6 @@
                         <input type="tel" id="telefono" name="telefono" required />
                     </div>
 
-                    <!-- Hacerlo o botno para que pueda poner la dirección o hacerlo 
-                                    mas grande -->
-
-                    <button id="toggleDireccion">Dirección</button>
-                    <div id="direccionPanel" class="direccion hidden">
-                        <div class="section">
-                            <label>Calle:</label>
-                            <input type="text"id="calle" required />
-                        </div>
-                        <div class="section">
-                            <label>Ciudad</label>
-                            <input type="text"id="ciudad" required />
-                        </div>
-                        <div class="section">
-                            <label>Estado</label>
-                            <input type="text" id="estado" required >
-                        </div>
-                        <div class="section">
-                            <label>Codigo Postal</label>
-                            <input type="text" id="codigo postal" required />
-                        </div>
-                    </div>
                     <div class="grupo-form">
                         <label for="password">Contraseña</label>
                         <input type="password" id="contrasena" name="contrasena" required />

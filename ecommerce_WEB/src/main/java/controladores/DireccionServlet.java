@@ -12,17 +12,19 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
-import negocio.Producto;
+import negocio.Direccion;
 import negocio.Usuario;
-import persistencia.UsuarioDAO;
+import persistencia.DireccionDAO;
+
 
 /**
  *
  * @author edgar
  */
-@WebServlet(name = "UsuarioServlet", urlPatterns = {"/UsuarioServlet"})
-public class UsuarioServlet extends HttpServlet {
-    UsuarioDAO dao=new UsuarioDAO();
+@WebServlet(name = "DireccionServlet", urlPatterns = {"/DireccionServlet"})
+public class DireccionServlet extends HttpServlet {
+    DireccionDAO dao=new DireccionDAO();
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -36,30 +38,26 @@ public class UsuarioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Obtenemos la acción de la URL
         String accion = request.getParameter("accion");
-        
+
         if (accion == null || accion.isEmpty() || accion.equals("listar")) {
-            List<Usuario> lista = dao.listarTodos();
-            request.setAttribute("listaUsuariosaDMIN", lista);
-            request.getRequestDispatcher("administrarUsuarios.jsp").forward(request, response);
+            List<Direccion> lista = dao.listarTodos();
+            request.setAttribute("listaDireccion", lista);
+            request.getRequestDispatcher("configurarDireccion.jsp").forward(request, response);
 
         } else if (accion.equals("eliminar")) {
             int id = Integer.parseInt(request.getParameter("id"));
             dao.eliminar(id);
-            response.sendRedirect("UsuarioServlet?accion=listar");
+            response.sendRedirect("DireccionServlet?accion=listar");
         } else if (accion.equals("editar")) {
             int id = Integer.parseInt(request.getParameter("id"));
 
-            //Buscar ese usuario en la BD
-            Usuario usuarioAEditar = dao.obtenerPorId(id);
-            dao.actualizar(usuarioAEditar);;
-            response.sendRedirect("UsuarioServlet?accion=listar");
-            //Mandar el usuario a la vista
-            
-//            request.setAttribute("usuario", usuarioAEditar);
-////            response.sendRedirect("UsuarioServlet?accion=listar");
-//            request.getRequestDispatcher("administrarUsuarios.jsp").forward(request, response);
+            //Buscar ese libro en la BD
+            Direccion direccionAEditar = dao.obtenerPorId(id);
+
+            //Mandar el libro a la vista
+            request.setAttribute("direccion", direccionAEditar);
+            request.getRequestDispatcher("configurarDireccion.jsp").forward(request, response);
         }
     }
 
@@ -79,25 +77,22 @@ public class UsuarioServlet extends HttpServlet {
         // Obtenemos una acción secreta que enviaremos desde el formulario de editar
         String accion = request.getParameter("accion");
 
-        String nombre = request.getParameter("nombre");
-        String Correo = request.getParameter("correo");
-        String contrasena = request.getParameter("contrasena");
-        String telefono = request.getParameter("telefono");
-        String rol= request.getParameter("rol");
-        boolean activo= Boolean.valueOf(request.getParameter("activo"));
-
+        String calle = request.getParameter("calle");
+        String ciudad = request.getParameter("ciudad");
+        String estado = request.getParameter("estado");
+        String codigo = request.getParameter("codigo");
+        int idUsuario = Integer.valueOf(request.getParameter("idUsuario"));
         if ("actualizar".equals(accion)) {
             int id = Integer.parseInt(request.getParameter("id"));
-            Usuario usuarioEditado = new Usuario(id, nombre, Correo, contrasena, telefono, rol,activo);
-            dao.actualizar(usuarioEditado);
+            Direccion direccionEditado = new Direccion(id, calle, ciudad, estado, codigo, idUsuario);
+            dao.actualizar(direccionEditado);
         } else {
             // Si no hay acción de actualizar, significa que viene de "crearProducto.jsp"
-            Usuario nuevoUsuario = new Usuario(0, nombre, Correo, contrasena, telefono);
-            dao.insertar(nuevoUsuario);
+            Direccion nuevoDireccion = new Direccion(0, calle, ciudad, estado, codigo, idUsuario);
+            dao.insertar(nuevoDireccion);
         }
-
         // Redirigimos de vuelta al catálogo
-        response.sendRedirect("gestionarCatalogoProductos.jsp");
+        response.sendRedirect("configurarDireccion.jsp");
     }
 
     /**
