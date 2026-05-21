@@ -107,6 +107,7 @@
                 <h3 class="materia">Aplicaciones Web - Unidad 2</h3>
             </div>
         </div>
-        <script src="javascript/procesoCompra.js"></script>
+        
+        <script src="javascript/procesoCompra.js?v=2"></script>
     </body>
 </html>
