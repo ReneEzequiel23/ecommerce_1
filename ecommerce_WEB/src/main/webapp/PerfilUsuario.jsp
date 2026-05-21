@@ -51,10 +51,14 @@
                         <label for="telefono">Número de Teléfono</label>
                         <input type="tel" id="telefono" name="telefono"/>
                     </div>
-                    <div class="grupo-form">
-                        <label for="direccion">Dirección del Envío</label>
-                        <input type="text" id="direccion" name="direccion"/>
-                    </div>
+                    <button
+                        type="button"
+                        class="btn-cancelar"
+                        onclick="window.location.href = '<%= request.getContextPath()%>/configurarDireccion.jsp'" 
+                        style="background-color: #c92c3e;border: 2px solid #a62b39;color: #eae1e3;
+                            padding: 8px 30px;cursor: pointer;">
+                        Configurar Dirección
+                    </button>
                     <button type="submit" class="btn-actualizar" style="left: 30%;" >Actualizar</button>
                 </form>
             </div>
