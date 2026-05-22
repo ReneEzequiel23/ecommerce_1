@@ -127,9 +127,12 @@ public class PedidoDAO {
 
             // 3. Insertar el Pedido maestro (Simulando Usuario 2, Dirección 1)
             int pedidoIdGenerado = 0;
-            String sqlPedido = "INSERT INTO Pedido (estado, total, usuario_id, direccion_id) VALUES ('Pendiente', ?, 2, 1)";
+            // ¡AQUÍ ESTÁ LA MAGIA! Cambiamos el 1 por un '?'
+            String sqlPedido = "INSERT INTO Pedido (estado, total, usuario_id, direccion_id) VALUES ('Pendiente', ?, 2, ?)";
+            
             try (PreparedStatement psPedido = con.prepareStatement(sqlPedido, Statement.RETURN_GENERATED_KEYS)) {
                 psPedido.setDouble(1, totalCalculado);
+                psPedido.setInt(2, solicitud.getDireccionId()); // Ahora sí tiene dónde entrar
                 psPedido.executeUpdate();
                 
                 // Recuperamos el ID autoincrementable que MySQL le asignó al pedido

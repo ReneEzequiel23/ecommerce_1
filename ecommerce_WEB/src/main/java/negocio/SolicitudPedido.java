@@ -13,6 +13,7 @@ import java.util.List;
 public class SolicitudPedido {
     private String metodoPago;
     private List<ProductoCarrito> detalles;
+    private int direccionId;
 
     public SolicitudPedido() {
     }
@@ -32,6 +33,13 @@ public class SolicitudPedido {
     public void setDetalles(List<ProductoCarrito> detalles) {
         this.detalles = detalles;
     }
-    
+
+    public int getDireccionId() {
+        return direccionId;
+    }
+
+    public void setDireccionId(int direccionId) {
+        this.direccionId = direccionId;
+    }
     
 }

@@ -74,7 +74,7 @@ function dibujarTabla(productos) {
 function agregarAlCarrito(idProducto, nombreLibro) {
     let carrito = JSON.parse(localStorage.getItem('carritoApp')) || [];
 
-    // Buscamos si el libro ya está agregado
+    // buscamos si el libro ya está agregado
     let item = carrito.find(p => p.id === idProducto);
 
     if (item) {
@@ -89,7 +89,6 @@ function agregarAlCarrito(idProducto, nombreLibro) {
 //    window.location.href = 'carritoCompras.jsp';
 }
 
-// Funciones pendientes de implementar
 function verDetalles(id) {
     window.location.href = `detallesDelProducto.jsp?id=${id}`;
 }
@@ -102,26 +101,24 @@ function configurarFiltros() {
     const formulario = document.getElementById('formFiltros');
     
     formulario.addEventListener('submit', (evento) => {
-        // Evitamos que la página parpadee y recargue
         evento.preventDefault();
         
-        // 1. Obtenemos lo que el usuario escribió
         const textoBusqueda = document.getElementById('f-nombre').value.toLowerCase();
         const usarPrecio = document.getElementById('check-precio').checked;
         const precioLimite = parseFloat(document.getElementById('f-precio').value);
         const rango = document.querySelector('input[name="rango"]:checked').value; // 'mayor' o 'menor'
         
-        // 2. Empezamos con la lista completa
+        // lista completa
         let listaFiltrada = catalogoOriginal;
         
-        // 3. Filtro por nombre (Si escribió algo)
+        // filtro por nombre
         if (textoBusqueda !== "") {
             listaFiltrada = listaFiltrada.filter(libro => 
                 libro.nombre.toLowerCase().includes(textoBusqueda)
             );
         }
         
-        // 4. Filtro por precio (Solo si activó la palomita y escribió un número válido)
+        // Filtro por precio
         if (usarPrecio && !isNaN(precioLimite)) {
             if (rango === 'mayor') {
                 // Traer los que cuesten IGUAL O MÁS que el límite
@@ -132,7 +129,7 @@ function configurarFiltros() {
             }
         }
         
-        // 5. Borramos la tabla actual y la volvemos a dibujar solo con los que pasaron el filtro
+        // dibujar solo con los que pasaron el filtro
         dibujarTabla(listaFiltrada);
     });
 }
