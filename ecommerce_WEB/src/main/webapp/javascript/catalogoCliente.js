@@ -104,8 +104,8 @@ function configurarFiltros() {
         evento.preventDefault();
         
         const textoBusqueda = document.getElementById('f-nombre').value.toLowerCase();
-        const usarPrecio = document.getElementById('check-precio').checked;
-        const precioLimite = parseFloat(document.getElementById('f-precio').value);
+        const usarPrecio = document.getElementById('checkprecio').checked;
+        const precioLimite = parseFloat(document.getElementById('fprecio').value);
         const rango = document.querySelector('input[name="rango"]:checked').value; // 'mayor' o 'menor'
         
         // lista completa

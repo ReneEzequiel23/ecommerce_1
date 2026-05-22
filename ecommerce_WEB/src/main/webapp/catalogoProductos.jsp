@@ -46,11 +46,11 @@
                         </div>
 
                         <div class="fila-filtro-medio">
-                            <label for="checkprecio">Precio</label>
-                            <input type="checkbox" id="checkprecio" class="input-check" />
+                            <label for="check-precio">Precio</label>
+                            <input type="checkbox" id="check-precio" class="input-check" />
                             <input
                                 type="number"
-                                id="fprecio"
+                                id="f-precio"
 
                                 placeholder="500.00"
                                 step="0.01"
@@ -95,7 +95,7 @@
         <script src="javascript/MenuScript.js"></script>
         <script src="javascript/catalogoCliente.js"></script>
         <script>
-            const checkbox = document.getElementById("checkprecio");
+            const checkbox = document.getElementById("check-precio");
             const precio = document.querySelectorAll(".input-texto");
 
             checkbox.addEventListener("change", function () {
