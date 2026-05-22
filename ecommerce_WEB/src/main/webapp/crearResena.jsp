@@ -49,7 +49,7 @@
                             id="calificacion"
                             name="calificacion"
                             min="1"
-                            max="2"
+                            max="5"
                             step="1"
                             required />
                     </div>

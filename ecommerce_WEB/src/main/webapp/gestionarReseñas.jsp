@@ -2,56 +2,43 @@
 <%@page import="negocio.Resena"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administrar reseñas</title>
     <link rel="stylesheet" href="css/gestionarReseñas.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/PantallaOrigen.css" />
   </head>
   <body>
         <!-- Pagina Principal -->
         <!-- Edgar Arturo Acevedo Acosta 245769
               Rene Ezequiel Figueroa López 228691 -->
-        <div class="containPP">
-            <div id="containerPg" class="barraSuperior">
-                <nav>
-                    <ul>
-                        <li>
-                            <div class="perfil">
-                                <input type="image" src="Img/perfil.png" alt="Perfil" />
-                                <ul>
-                                    <li><a href="perfilUsuario.jsp">Perfil</a></li>
-                                    <li><a href="LogoutServlet">Cerrar Sesión</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div id="containerPg" class="menuLateral">
-                <div class="menu">
-                    <ul>
-                        <li class="page"><a href="index.jsp">Inicio</a></li>
-                        <li class="page">
-                            <a href="catalogoProductos.html">Catálogo (Vista Cliente)</a>
-                        </li>
-                        <li class="page"><a href="carritoCompras.jsp">Carrito de Compras</a></li>
-                        <li class="page">
-                            <a href="gestionDePedidos.jsp">Gestión de Pedidos</a>
-                        </li>
-                        <li class="page">
-                            <a href="administradorPantalla.jsp" style="background-color: #999">Administrador</a>
-                        </li>
-                    </ul>
+        <header>
+            <button id="toggleSidebar">☰ Menu</button>
+            <div class="profile">
+                <img src="Img/perfil.png" id="profilePic" alt="Perfil" />
+                <div id="profileMenu" class="dropdown hidden">
+                    <a href="inicioDeSesion.jsp">Iniciar Sesión</a>
+                    <a href="PerfilUsuario.jsp">Perfil</a>
+                    <a href="LogoutServlet">Cerrar Sesión</a>
                 </div>
             </div>
-            <div id="containerPg" class="contenido area-admin-reseña">
-                <h2 class="titulo-admin">Administrar Reseñas</h2>
+        </header>
 
-                <div class="caja-tabla-admin">
-                    <table class="tabla-admin">
+        <div id="sidebar" class="sidebar">
+            <a href="PantallaAgregar.html">Inicio</a>
+            <a href="catalogoProductos.jsp">Catálogo de Productos</a>
+            <a href="carritoCompras.jsp">Carrito de Compras</a>
+            <a href="gestionDePedidos.jsp">Gestion de Pedidos</a>
+            <a href="administradorPantalla.jsp">Administrador</a>
+        </div>
+
+        <main>
+            <h2 style="color: #eae1e3;">Administrar Reseñas</h2>
+            <div class="caja-tabla-admin">
+                <form action="ResenaServlet" method="GET">
+                    <table class="tabla-admin" style="background: #3d3d3d; " >
                         <thead>
                             <tr>
                                 <th>Usuario</th>
@@ -68,17 +55,17 @@
 
                                 // Si la lista no es nula, la recorremos
                                 if (resenas != null && !resenas.isEmpty()) {
-                                    for (Resena p : resenas ){
+                                    for (Resena p : resenas) {
                             %>
                             <tr>
                                 <td><%= p.getUsuario_id()%></td>
-                                <td><%= p.getProducto_id() %></td>
+                                <td><%= p.getProducto_id()%></td>
                                 <td><%= p.getCalificacion()%></td>
-                                <td><%= p.getFecha() %> </td>
+                                <td><%= p.getFecha()%> </td>
                                 <td class="celda-acciones">
-                                  <button type="button" class="btn-eliminar" style="background-color: #d9534f; color: white;"
+                                    <button type="button" class="btn-eliminar" style="background-color: #d9534f; color: white;"
                                             onclick="if (confirm('¿Seguro que deseas eliminar este Reseña?'))
-                                      window.location.href = 'ResenaServlet?accion=eliminar&id=<%= p.getId()%>'">
+                          window.location.href = 'ResenaServlet?accion=eliminar&id=<%= p.getId()%>'">
                                         Eliminar
                                     </button>
                                 </td>
@@ -91,13 +78,12 @@
                             <% }%>
                         </tbody>
                     </table>
-                </div>
+                </form>
             </div>
+        </main>
 
-            <div id="containerPg" class="piePagina">
-                 <h3 class="materia">Aplicaciones Web - Unidad 2</h3>
-            </div>
-        </div>
+        <footer class="footer">Aplicaciones Web - Unidad 2</footer>
+        <script src="javascript/MenuScript.js"></script>
     </body>
 </html>
 

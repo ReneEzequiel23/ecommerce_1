@@ -41,13 +41,14 @@ public class ResenaServlet extends HttpServlet {
         if (accion == null || accion.isEmpty() || accion.equals("listar")) {
             List<Resena> lista = dao.listarTodos();
             request.setAttribute("listaResenas", lista);
-            request.getRequestDispatcher("crearResena.jsp").forward(request, response);
+            request.getRequestDispatcher("gestionarReseñas.jsp").forward(request, response);
             
         } else if (accion.equals("eliminar")) {
             int id = Integer.parseInt(request.getParameter("id"));
             dao.eliminar(id);
             response.sendRedirect("ResenaServlet?accion=listar");
         }
+        
     }
 
     /**
@@ -86,7 +87,7 @@ public class ResenaServlet extends HttpServlet {
         }
         
         // Redirigimos de vuelta al catálogo
-        response.sendRedirect("ResenaServlet?accion=listar");
+        response.sendRedirect("catalogoProductos.jsp");
     }
 
     /**

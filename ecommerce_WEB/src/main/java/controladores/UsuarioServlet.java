@@ -84,7 +84,7 @@ public class UsuarioServlet extends HttpServlet {
         String contrasena = request.getParameter("contrasena");
         String telefono = request.getParameter("telefono");
         String rol= request.getParameter("rol");
-        boolean activo= Boolean.valueOf(request.getParameter("activo"));
+        boolean activo= Boolean.parseBoolean(request.getParameter("activo"));
 
         if ("actualizar".equals(accion)) {
             int id = Integer.parseInt(request.getParameter("id"));
