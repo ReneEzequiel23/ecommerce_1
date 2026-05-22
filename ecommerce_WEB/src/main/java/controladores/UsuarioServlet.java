@@ -97,7 +97,7 @@ public class UsuarioServlet extends HttpServlet {
         }
 
         // Redirigimos de vuelta al catálogo
-        response.sendRedirect("gestionarCatalogoProductos.jsp");
+        response.sendRedirect("PantallaAgregar.html");
     }
 
     /**

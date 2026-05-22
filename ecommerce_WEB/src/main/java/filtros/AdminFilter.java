@@ -14,7 +14,7 @@ import java.io.IOException;
 
 // La anotación @WebFilter define qué URLs va a proteger este guardia.
 // Puedes listar páginas específicas o usar comodines (*).
-@WebFilter(urlPatterns = {"/admin_dashboard.jsp", "/productos_admin.jsp", "/pedidos_admin.jsp", "/ProductoServlet", "/PedidoServlet"})
+@WebFilter(urlPatterns = {"/administradorPantalla.jsp", "/productos_admin.jsp", "/pedidos_admin.jsp", "/ProductoServlet", "/PedidoServlet"})
 public class AdminFilter implements Filter {
 
     @Override
@@ -36,7 +36,7 @@ public class AdminFilter implements Filter {
         if (sesionIniciada) {
             chain.doFilter(request, response);
         } else {
-            res.sendRedirect(req.getContextPath() + "/login.jsp");
+            res.sendRedirect(req.getContextPath() + "/PantallaAgregar.html");
         }
     }
 
