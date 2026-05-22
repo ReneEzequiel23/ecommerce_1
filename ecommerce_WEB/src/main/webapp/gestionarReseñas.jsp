@@ -36,6 +36,7 @@
 
         <main>
             <h2 style="color: #eae1e3;">Administrar Reseñas</h2>
+            <br></br>
             <div class="caja-tabla-admin">
                 <form action="ResenaServlet" method="GET">
                     <table class="tabla-admin" style="background: #3d3d3d; " >
@@ -63,6 +64,10 @@
                                 <td><%= p.getCalificacion()%></td>
                                 <td><%= p.getFecha()%> </td>
                                 <td class="celda-acciones">
+                                    <button type="button" class="btn-estado" style="background-color: #8bb7e9"
+                                            onclick="
+                            window.location.href = 'verResena.jsp'"
+                                            >Ver Reseña</button>
                                     <button type="button" class="btn-eliminar" style="background-color: #d9534f; color: white;"
                                             onclick="if (confirm('¿Seguro que deseas eliminar este Reseña?'))
                           window.location.href = 'ResenaServlet?accion=eliminar&id=<%= p.getId()%>'">
