@@ -60,7 +60,7 @@ public class DireccionesResource {
                         rs.getString("calle"), 
                         rs.getString("ciudad"), 
                         rs.getString("estado"), 
-                        rs.getString("codigo_postal"), // Nota: Verifica que tu columna en MySQL se llame así
+                        rs.getString("codigo_postal"),
                         rs.getInt("usuario_id")
                     ));
                 }

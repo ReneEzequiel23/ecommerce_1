@@ -13,7 +13,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Date;
 import java.util.List;
 import negocio.Resena;
+import persistencia.ProductoDAO;
 import persistencia.ResenaDao;
+import persistencia.UsuarioDAO;
 /**
  *
  * @author ReneEzequiel23 & EdgarAcevedoAcosta
@@ -47,6 +49,35 @@ public class ResenaServlet extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             dao.eliminar(id);
             response.sendRedirect("ResenaServlet?accion=listar");
+        }  else if ("ver".equals(accion)) {
+            int idResena = Integer.parseInt(request.getParameter("id"));
+
+            // 1. Traemos la reseña con ese ID
+            Resena r = dao.obtenerPorId(idResena);
+            request.setAttribute("resena", r);
+
+            // 2. Buscamos los NOMBRES reales usando los otros DAOs
+            try {
+                // Obtenemos el nombre del Usuario
+                UsuarioDAO usuarioDao = new UsuarioDAO();
+                negocio.Usuario u = usuarioDao.obtenerPorId(r.getUsuario_id());
+                String nombreUsuario = (u != null) ? u.getNombre() : "Usuario Desconocido";
+                request.setAttribute("nombreUsuario", nombreUsuario);
+
+                // Obtenemos el nombre del Producto
+                ProductoDAO productoDao = new ProductoDAO();
+                negocio.Producto p = productoDao.obtenerPorId(r.getProducto_id());
+                String nombreProducto = (p != null) ? p.getNombre() : "Producto Desconocido";
+                request.setAttribute("nombreProducto", nombreProducto);
+
+            } catch (Exception e) {
+                // Por si ocurre un error, mandamos los IDs como plan B
+                request.setAttribute("nombreUsuario", "ID: " + r.getUsuario_id());
+                request.setAttribute("nombreProducto", "ID: " + r.getProducto_id());
+            }
+
+            // 3. Mandamos todo a la pantalla de verResena.jsp
+            request.getRequestDispatcher("verResena.jsp").forward(request, response);
         }
         
     }

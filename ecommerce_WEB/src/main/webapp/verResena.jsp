@@ -62,7 +62,7 @@
                     <button
                         type="button"
                         class="btn-cancelar"
-                        onclick="window.location.href = '/configurarDireccion.jsp'" 
+                        onclick="window.location.href = '/ecommerce_WEB/ResenaServlet'" 
                         style="background-color: #c92c3e;border: 2px solid #a62b39;color: #eae1e3;
                             padding: 8px 30px;cursor: pointer;">
                         Cancelar
@@ -73,5 +73,6 @@
 
         <footer class="footer">Aplicaciones Web - Unidad 2</footer>
         <script src="javascript/MenuScript.js"></script>
+        <script src="javascript/verResena.js?v=1"></script>
     </body>
 </html>

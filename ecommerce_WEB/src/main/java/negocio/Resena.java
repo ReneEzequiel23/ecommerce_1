@@ -17,6 +17,8 @@ public class Resena {
     private Date fecha;
     private int usuario_id;
     private int producto_id;
+    private String nombreProducto;
+    private String nombreUsuario;
 
     public Resena() {
     }
@@ -76,6 +78,22 @@ public class Resena {
 
     public void setProducto_id(int producto_id) {
         this.producto_id = producto_id;
+    }
+
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
     
     
