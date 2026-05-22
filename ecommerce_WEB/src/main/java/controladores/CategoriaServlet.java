@@ -70,7 +70,7 @@ public class CategoriaServlet extends HttpServlet {
             Categoria categoriaEditado = new Categoria(id, nombre);
             //dao.actualizar(usuarioEditado);
         } else {
-            
+   
             Categoria nuevoUsuario = new Categoria(0, nombre);
             dao.insertar(nuevoUsuario);
         }

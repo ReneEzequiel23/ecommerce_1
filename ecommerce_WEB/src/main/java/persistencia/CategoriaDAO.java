@@ -54,7 +54,8 @@ public class CategoriaDAO {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    p = new Categoria(rs.getInt("id"), rs.getString("nombre"));
+                    p = new Categoria(rs.getInt("id"), 
+                            rs.getString("nombre"));
                 }
             }
         } catch (SQLException e) {

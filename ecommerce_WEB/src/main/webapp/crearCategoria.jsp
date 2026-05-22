@@ -43,8 +43,8 @@
                 <h2>Crear Categoria</h2>
                 <form action="CategoriaServlet" method="POST">                    
                     <div class="grupo-form">
-                        <label for="Nombre">Nombre Categoria</label>
-                        <input type="text" id="nombre" name="noombre" name="nombre" required />
+                        <label for="nombre">Nombre Categoria</label>
+                        <input type="text" id="nombre" name="nombre" required />
                     </div>
                     <button type="submit" class="btn-iniciar" style="width: 40%; background-color: #7ce086;
                             border: 2px solid #4bb856; padding: 12px 40px; ursor: pointer;">Crear</button>
@@ -54,7 +54,6 @@
                         Regresar
                     </button>
                 </form>
-                
             </div>
         </main>
 
