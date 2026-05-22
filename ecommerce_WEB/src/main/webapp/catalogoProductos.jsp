@@ -39,7 +39,7 @@
             <div class="contains">
                 <div class="caja-filtros" style="background: #3d3d3d; padding: 30px; width: 40%">
                     <h2>Filtros</h2>
-                    <form action="#" method="GET" class="formulario-filtros">
+                    <form action="#" method="GET" class="formulario-filtros" id="formFiltros">
                         <div class="fila-filtro">
                             <label for="f-nombre">Nombre</label>
                             <input type="text" id="f-nombre" name="nombre" class="input-texto" style="padding: 8px"/>
@@ -82,28 +82,7 @@
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>ParamText</td>
-                                    <td>XXX.XX</td>
-                                    <td>
-                                        <button
-                                            type="button"
-                                            class="btn-detalles"
-                                            onclick="window.location.href = 'detallesDelProducto.html'">
-                                            Detalles
-                                        </button>
-                                    </td>
-                                    <td class="celda-acciones">
-                                        <button type="button" class="btn-agregar">Agregar Carrito</button>
-                                        <button
-                                            type="button"
-                                            class="btn-resena"
-                                            onclick="window.location.href = 'crearResena.jsp'">
-                                            Dejar Reseña
-                                        </button>
-                                    </td>
-                                </tr>
+                            <tbody id="cuerpoCatalogoCliente">
                             </tbody>
                         </table>
                     </form>
@@ -113,5 +92,6 @@
 
         <footer class="footer">Aplicaciones Web - Unidad 2</footer>
         <script src="javascript/MenuScript.js"></script>
+        <script src="javascript/catalogoCliente.js"></script>
     </body>
 </html>
