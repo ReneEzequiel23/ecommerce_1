@@ -37,7 +37,7 @@
 
         <main>
             <div class="tarjeta-detalles">
-                <form id="formDetalles" action="UsuarioServlet" method="POST">
+                <form id="formDetalles" action="#" method="GET">
                     <h2 class="titulo-producto">Nombre de Libro</h2>
 
                     <h3 class="subtitulo">Descripción General</h3>
@@ -70,7 +70,7 @@
 
                     <div class="contenedor-boton">
                         <button type="button" class="btn-regresar"
-                                onclick="window.location.href='catalogoProductos.html'">Regresar</button>
+                                onclick="window.location.href='catalogoProductos.jsp'">Regresar</button>
                     </div>
                 </form>
             </div>

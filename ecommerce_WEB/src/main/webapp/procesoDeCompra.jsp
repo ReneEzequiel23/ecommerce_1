@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,103 +11,84 @@
         <!-- Pagina Principal -->
         <!-- Edgar Arturo Acevedo Acosta 245769
               Rene Ezequiel Figueroa L贸pez 228691 -->
-        <div class="containPP">
-            <div id="containerPg" class="barraSuperior">
-                <nav>
-                    <ul>
-                        <li>
-                            <div class="perfil">
-                                <input type="image" src="../Img/perfil.png" alt="Perfil" />
-                                <ul>
-                                    <!-- Tengo que Arreglar Este Css por que Solo se Activa
-                                       Cuando Tienes Presionado el Click en el Perfil 
-                                       y Aparece a la Izquierda xdddd-->
-                                    <li><a href="../pantallas/perfilUsuario.html">Perfil</a></li>
-                                    <li><a href="../pantallas/inicioDeSesion.html">Cerrar Sesi贸n</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div id="containerPg" class="menuLateral">
-                <div class="menu">
-                    <ul>
-                        <li class="page"><a href="../pantallas/index.html">Inicio</a></li>
-                        <li class="page">
-                            <a href="../pantallas/catalogoProductos.html">Catalogo de Productos</a>
-                        </li>
-                        <li class="page"><a href="../pantallas/carritoCompras.html">Carrito de Compras</a></li>
-                        <li class="page">
-                            <a href="../pantallas/gestionDePedidos.html">Gesti贸n de Pedidos</a>
-                        </li>
-                        <li class="page">
-                            <a href="../pantallas/administradorPantalla.html">Administrador</a>
-                        </li>
-                        <li class="page"><a href="../pantallas/inicioDeSesion.html">Iniciar Sesi贸n</a></li>
-                    </ul>
+    <body>
+        <header>
+            <button id="toggleSidebar">Menu</button>
+            <div class="profile">
+                <img src="Img/perfil.png" id="profilePic" alt="Perfil" />
+                <div id="profileMenu" class="dropdown hidden">
+                    <a href="inicioDeSesion.jsp">Iniciar Sesi髇</a>
+                    <a href="PerfilUsuario.jsp">Perfil</a>
+                    <a href="LogoutServlet">Cerrar Sesi髇</a>
                 </div>
             </div>
-            <div id="containerPg" class="contenido">
-                <div class="primer-cont">
-                    <div class="caja-tabla">
-                        <table class="tabla-productos">
-                            <thead>
-                                <tr>
-                                    <th>Nombre del Producto</th>
-                                    <th>Precio</th>
-                                    <th>Cantidad</th>
-                                    <th>Subtotal</th>
-                                </tr>
-                            </thead>
-                            <tbody id="cuerpoResumen">
-                            </tbody>
-                        </table>
-                    </div>
+        </header>
 
-                    <div class="metodoP">
-                        <h2>Metodo de Pago</h2>
-                        <form action="#" method="POST" class="formulario-pago">
-                            <div class="radios">
-                                <input type="radio" id="tarjeta" name="metodo_pago" value="tarjeta" />
-                                <label for="tarjeta">Tarjeta de Credito/Debito</label>
-                            </div>
-                            <div class="radios">
-                                <input type="radio" id="oxxo" name="metodo_pago" value="oxxo" />
-                                <label for="oxxo">Oxxo</label>
-                            </div>
-                            <div class="radios">
-                                <input type="radio" id="transferencia" name="metodo_pago" value="transferencia" />
-                                <label for="transferencia">Transferencia Bancaria</label>
-                            </div>
-                    </div>
-                </div>
-                <div class="segundo-cont">
-                    <div class="contoF">
-                        <label for="costoFinal">Costo Final</label>
-                        <input type="text" id="costoFinal" name="costoFinal" readonly style="background-color: #e9ecef; font-weight: bold; padding: 5px;" />
-                        <label></label>
-                        <label></label>
-                        <label></label>
-                        <label></label>
-                        <!-- Para que se vea mas Chico el Costo final-->
-                    </div>
-                    <div class="botones">
-                        <button type="button" class="btn-cancelar" onclick="window.location.href = 'carritoCompras.jsp'">
-                            Volver al Carrito
-                        </button>
-                        <button type="button" id="btnConfirmarPedido" class="btn-confirmar">
-                            Confirmar y Pagar
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="containerPg" class="piePagina">
-                <h3 class="materia">Aplicaciones Web - Unidad 2</h3>
-            </div>
+        <div id="sidebar" class="sidebar">
+            <a href="PantallaAgregar.html">Inicio</a>
+            <a href="catalogoProductos.jsp">Cat醠ogo de Productos</a>
+            <a href="carritoCompras.jsp">Carrito de Compras</a>
+            <a href="gestionDePedidos.jsp">Gestion de Pedidos</a>
+            <a href="administradorPantalla.jsp">Administrador</a>
         </div>
-        
+
+        <main>
+            <div class="primer-cont">
+                <div class="caja-tabla">
+                    <table class="tabla-productos">
+                        <thead>
+                            <tr>
+                                <th>Nombre del Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpoResumen">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="metodoP">
+                    <h2>Metodo de Pago</h2>
+                    <form action="#" method="POST" class="formulario-pago">
+                        <div class="radios">
+                            <input type="radio" id="tarjeta" name="metodo_pago" value="tarjeta" />
+                            <label for="tarjeta">Tarjeta de Credito/Debito</label>
+                        </div>
+                        <div class="radios">
+                            <input type="radio" id="oxxo" name="metodo_pago" value="oxxo" />
+                            <label for="oxxo">Oxxo</label>
+                        </div>
+                        <div class="radios">
+                            <input type="radio" id="transferencia" name="metodo_pago" value="transferencia" />
+                            <label for="transferencia">Transferencia Bancaria</label>
+                        </div>
+                </div>
+            </div>
+            <div class="segundo-cont">
+                <div class="contoF">
+                    <label for="costoFinal">Costo Final</label>
+                    <input type="text" id="costoFinal" name="costoFinal" readonly style="background-color: #e9ecef; font-weight: bold; padding: 5px;" />
+                    <label></label>
+                    <label></label>
+                    <label></label>
+                    <label></label>
+                    <!-- Para que se vea mas Chico el Costo final-->
+                </div>
+                <div class="botones">
+                    <button type="button" class="btn-cancelar" onclick="window.location.href = 'carritoCompras.jsp'">
+                        Volver al Carrito
+                    </button>
+                    <button type="button" id="btnConfirmarPedido" class="btn-confirmar">
+                        Confirmar y Pagar
+                    </button>
+                </div> 
+            </div> 
+        </main>
+
+        <footer class="footer">Aplicaciones Web - Unidad 2</footer>
+        <script src="javascript/MenuScript.js"></script>
         <script src="javascript/procesoCompra.js?v=2"></script>
     </body>
 </html>

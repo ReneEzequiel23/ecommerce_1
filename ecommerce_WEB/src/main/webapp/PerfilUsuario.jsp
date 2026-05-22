@@ -38,7 +38,7 @@
         <main >
             <div class="tarjeta-perfil" style="background-color:#1c1c1c;  padding: 40px">
                 <h2>Perfil</h2>
-                <form action="#" method="POST">
+                <form action="UsuarioServlet" method="POST">
                     <div class="grupo-form">
                         <label for="nombre">Nombre</label>
                         <input type="text" id="nombre" name="nombre"/>
@@ -51,6 +51,28 @@
                         <label for="telefono">Número de Teléfono</label>
                         <input type="tel" id="telefono" name="telefono"/>
                     </div>
+                    <div class="grupo-form">
+                        <label for="cambiarContrasena">Desas Cambiar la Contraseña???</label>
+                        <input type="checkbox" id="cambiarContrasena"/>
+                    </div>
+                    <div class="grupo-form">
+                        <div class="cambiar-contra hidden">
+                            <label for="contrasena">Contraseña Actúal</label>
+                            <input type="password" id="contrasenaAct" name="contrasenaAct"/>
+                        </div>
+                    </div>
+                    <div class="grupo-form">
+                        <div class="cambiar-contra  hidden">
+                            <label for="contrasena">Contraseña</label>
+                            <input type="password" id="contrasena" name="contrasena"/>
+                        </div>
+                    </div>
+                    <div class="grupo-form">
+                        <div class="cambiar-contra  hidden">
+                            <label for="contrasena">Confirmar Contraseña</label>
+                            <input type="password" id="contrasenaCon" name="contrasenaCon"/>
+                        </div>
+                    </div>
                     <button
                         type="button"
                         class="btn-cancelar"
@@ -59,12 +81,30 @@
                             padding: 8px 30px;cursor: pointer;">
                         Configurar Dirección
                     </button>
-                    <button type="submit" class="btn-actualizar" style="left: 30%;" >Actualizar</button>
+                    <button type="submit" class="btn-actualizar" style="background-color: #c92c3e;
+                            border: 2px solid #a62b39;color: #eae1e3;
+                            padding: 8px 30px;cursor: pointer;" >Actualizar</button>
                 </form>
             </div>
         </main>
 
         <footer class="footer">Aplicaciones Web - Unidad 2</footer>
         <script src="javascript/MenuScript.js"></script>
+        <script src="javascript/perfilUsuarioJs.js"></script>
+        <style>
+            .hidden{
+                display: none;
+            }
+            #cambiarContrasena{
+                left: 50%;
+                border-radius: 3px;
+                width: 100%;
+                padding: 8px;
+                border: 2px solid #888;
+                background-color: red;
+            }
+
+
+        </style>
     </body>
 </html>

@@ -82,7 +82,7 @@
                                     style="background-color: #4b8166;border: 2px solid #1f4d40;color: #eae1e3;
                                     padding: 8px 30px;cursor: pointer;"
                                     >Crear Cuenta</button>
-                            <--<!-- Aqui sera que cuando lo agregue se abra otra pantalla para agregarle la direccion -->
+                            <!-- Aqui sera que cuando lo agregue se abra otra pantalla para agregarle la direccion -->
                     </div>
                 </form>
             </div>

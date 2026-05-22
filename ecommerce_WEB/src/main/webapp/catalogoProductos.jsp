@@ -42,18 +42,19 @@
                     <form action="#" method="GET" class="formulario-filtros" id="formFiltros">
                         <div class="fila-filtro">
                             <label for="f-nombre">Nombre</label>
-                            <input type="text" id="f-nombre" name="nombre" class="input-texto" style="padding: 8px"/>
+                            <input type="text" id="f-nombre" name="nombre" class="input-texto-nombre" style="padding: 8px"/>
                         </div>
 
                         <div class="fila-filtro-medio">
-                            <label for="f-precio">Precio</label>
-                            <input type="checkbox" id="check-precio" class="input-check" />
+                            <label for="checkprecio">Precio</label>
+                            <input type="checkbox" id="checkprecio" class="input-check" />
                             <input
                                 type="number"
-                                id="f-precio"
+                                id="fprecio"
+
                                 placeholder="500.00"
                                 step="0.01"
-                                class="input-texto corto" style="padding: 8px" />
+                                class="input-texto hidden" style="padding: 8px" />
                         </div>
 
                         <div class="fila-filtro-inferior">
@@ -93,5 +94,25 @@
         <footer class="footer">Aplicaciones Web - Unidad 2</footer>
         <script src="javascript/MenuScript.js"></script>
         <script src="javascript/catalogoCliente.js"></script>
+        <script>
+            const checkbox = document.getElementById("checkprecio");
+            const precio = document.querySelectorAll(".input-texto");
+
+            checkbox.addEventListener("change", function () {
+                precio.forEach(div => {
+                    if (this.checked) {
+                        div.classList.remove("hidden");
+                    } else {
+                        div.classList.add("hidden");
+                    }
+                });
+            });
+        </script>
+        <style>
+            .hidden{
+                display: none;
+            }
+
+        </style>
     </body>
 </html>
