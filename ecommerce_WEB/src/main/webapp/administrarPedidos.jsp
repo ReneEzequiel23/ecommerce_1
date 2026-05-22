@@ -3,6 +3,7 @@
     Created on : 21 may 2026, 3:15:22 p.m.
     Author     : edgar
 --%>
+<%@page import="persistencia.UsuarioDAO"%>
 <%@page import="negocio.Usuario"%>
 <%@page import="negocio.Pedido"%>
 <%@page import="java.util.List"%>
@@ -56,21 +57,23 @@
                             <%
                                 // Recuperamos la lista que nos mandó el Servlet
                                 List<Pedido> pedidos = (List<Pedido>) request.getAttribute("listaPedidodos");
-
+                                UsuarioDAO users = new UsuarioDAO();
                                 // Si la lista no es nula, la recorremos
                                 if (pedidos != null && !pedidos.isEmpty()) {
                                     for (Pedido p : pedidos) {
+                                    Usuario us= users.obtenerPorId(p.getUsuario_id());
                             %>
                             <tr>
-                                <td><%= p.getUsuario_id()%></td>
+                                <td><%= us.getNombre() %></td>
                                 <td><%= p.getId()%></td>
                                 <td><%= p.getFecha()%></td>
-                                <td><%= p.getTotal()%></td>
-                                <td>$<%= p.getEstado()%></td>
+                                <td>$ <%= p.getTotal()%></td>
+                                <td><%= p.getEstado()%></td>
                                 <td class="celda-acciones">
-                                    <button type="button" class="btn-estado"
+                                    <button type="button" class="btn-estado"style="background-color:#3992d5; border: 2px solid #1c6eba; 
+                                            padding: 8px; width: 140px; height: 50px; color:white; "
                                             onclick="if (confirm('¿Seguro que deseas cambiarle el estado a este Pedido?'))
-                            window.location.href = 'UsuarioServlet?accion=editar&id=<%= p.getId()%>'"
+                            window.location.href = 'PedidosSerlet?accion=editar&id=<%= p.getId()%>'"
                                             >Cambiar Estado</button>
                                 </td>
                             </tr>

@@ -58,10 +58,10 @@
                             <%
                                 // Recuperamos la lista que nos mandó el Servlet
                                 List<Usuario> usuariosA = (List<Usuario>) request.getAttribute("listaUsuariosaDMIN");
-
                                 // Si la lista no es nula, la recorremos
                                 if (usuariosA != null && !usuariosA.isEmpty()) {
                                     for (Usuario p : usuariosA) {
+                                    
                             %>
                             <tr>
                                 <td style="color: #1d1d2a"><%= p.getId()%></td>

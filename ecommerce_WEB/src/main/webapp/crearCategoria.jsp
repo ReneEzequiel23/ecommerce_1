@@ -48,7 +48,7 @@
                     </div>
                     <button type="submit" class="btn-iniciar" style="width: 40%; background-color: #7ce086;
                             border: 2px solid #4bb856; padding: 12px 40px; ursor: pointer;">Crear</button>
-                    <br />
+                            <br><br />
                     <button type="button" onclick="window.location.href = '<%= request.getContextPath()%>/gestionarCatalogoProductos.jsp'" class="btn-regresar"
                             style="background-color: #c92c3e;border: 2px solid #a62b39;color: #eae1e3; padding: 12px 40px;">
                         Regresar

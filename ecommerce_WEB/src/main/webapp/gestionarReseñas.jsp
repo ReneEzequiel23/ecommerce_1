@@ -1,3 +1,7 @@
+<%@page import="negocio.Producto"%>
+<%@page import="negocio.Usuario"%>
+<%@page import="persistencia.ProductoDAO"%>
+<%@page import="persistencia.UsuarioDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="negocio.Resena"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -53,14 +57,17 @@
                             <%
                                 // Recuperamos la lista que nos mandó el Servlet
                                 List<Resena> resenas = (List<Resena>) request.getAttribute("listaResenas");
-
+                                UsuarioDAO users = new UsuarioDAO();
+                                ProductoDAO prod=new ProductoDAO();
                                 // Si la lista no es nula, la recorremos
                                 if (resenas != null && !resenas.isEmpty()) {
                                     for (Resena p : resenas) {
+                                    Usuario us=users.obtenerPorId(p.getUsuario_id());
+                                    Producto pr=prod.obtenerPorId(p.getProducto_id());
                             %>
                             <tr>
-                                <td><%= p.getUsuario_id()%></td>
-                                <td><%= p.getProducto_id()%></td>
+                                <td><%= us.getNombre()%></td>
+                                <td><%= pr.getNombre()%></td>
                                 <td><%= p.getCalificacion()%></td>
                                 <td><%= p.getFecha()%> </td>
                                 <td class="celda-acciones">

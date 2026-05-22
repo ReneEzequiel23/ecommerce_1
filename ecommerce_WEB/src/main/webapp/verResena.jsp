@@ -36,9 +36,9 @@
             <a href="administradorPantalla.jsp">Administrador</a>
         </div>
 
-        <main>
+        <main style="display: flex;justify-content: center;align-items: center;">
             <div class="tarjeta-perfil" style="background-color:#1c1c1c;  padding: 40px">
-                <h2>Perfil</h2>
+                <h2>Reseña</h2>
                 <form action="#" method="GET">
                     <div class="grupo-form">
                         <label for="nombre">Nombre Usuario</label>
@@ -46,17 +46,17 @@
                     </div>
                     <div class="grupo-form">
                         <label for="producto">Nombre Producto</label>
-                        <input type="text" id="producto" name="producto" style="background-color: white"/>
+                        <input type="text" id="producto" name="producto" disabled="true" style="background-color: white"/>
                     </div>
                     <div class="grupo-form">
                         <label for="calificacion">Calificación</label>
-                        <input type="text" id="calificacion" name="calificacion" style="background-color: white"/>
+                        <input type="text" id="calificacion" name="calificacion" disabled="true" style="background-color: white;"/>
                     </div>
                     <div class="grupo-form">
                         <label for="comentario">Reseña</label>
                     </div>
                     <div class="grupo-form">
-                        <textarea id="comentario" name="comentario" required style="background-color: white"></textarea>
+                        <textarea id="comentario" name="comentario" disabled="true" style="background-color: white; width: 100%; height: 120px;" ></textarea>
                     </div>
                     <!-- boton de eliminar -->
                     <button

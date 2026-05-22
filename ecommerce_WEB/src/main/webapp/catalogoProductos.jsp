@@ -67,7 +67,7 @@
                                     >Menor <input type="radio" name="rango" value="menor" class="input-radio"
                                               /></label>
                             </div>
-                            <button type="submit" class="btn-filtrar" style="background-color:#707ff5; border: 2px solid #1e1e76; ">Filtrar</button>
+                            <button type="submit" class="btn-filtrar" style="background-color:#b6d7f7; border: 2px solid #1e1e76; ">Filtrar</button>
                         </div>
                     </form>
                 </div>
