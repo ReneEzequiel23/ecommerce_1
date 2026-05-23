@@ -139,3 +139,76 @@ div.segundo-cont .contoF input {
 .contoF label {
     color: #222222; /* Asegura que las celdas y los métodos de pago también sean oscuros */
 }
+
+@media (max-width: 768px) {
+    .primer-cont {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px;
+    }
+
+    .caja-tabla, .metodoP, .segundo-cont {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .metodoP h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .radios, .contoF {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .radios label, .contoF label {
+        margin-bottom: 5px;
+        font-size: 14px;
+        padding-right: 0;
+    }
+
+    .tabla-productos,
+    .tabla-productos thead,
+    .tabla-productos tbody,
+    .tabla-productos th,
+    .tabla-productos td,
+    .tabla-productos tr {
+        display: block;
+        width: 100%;
+    }
+
+    .tabla-productos tr {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+        background-color: #fff;
+        padding: 10px;
+    }
+
+    .tabla-productos td {
+        border: none;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .tabla-productos td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .botones {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-confirmar, .btn-cancelar {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+    }
+}

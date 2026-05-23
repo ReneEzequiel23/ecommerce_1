@@ -71,3 +71,116 @@ div.contenido .tarjeta-registro input {
   cursor: pointer;
   width: 45%;
 }
+
+div.contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+}
+
+/* Tarjeta del formulario de registro */
+.tarjeta-registro {
+  background-color: #f7f7f7;
+  border: 2px solid #ddd;
+  padding: 40px;
+  width: 500px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.tarjeta-registro h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* Inputs y labels */
+.grupo-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.grupo-form label {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+  padding-right: 10px;
+}
+
+div.contenido .tarjeta-registro input {
+  flex: 1.5;
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #888;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+/* Botones */
+.botones-registro {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.btn-cancelar, .btn-crear {
+  padding: 10px 25px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 45%;
+  border-radius: 4px;
+}
+
+.btn-cancelar {
+  background-color: #f47b62;
+  border: 2px solid #c95138;
+}
+
+.btn-crear {
+  background-color: #81cbf5;
+  border: 2px solid #3fa9f5;
+}
+
+/* 🔹 Responsividad para celulares */
+@media (max-width: 768px) {
+  .tarjeta-registro {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .tarjeta-registro h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .grupo-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grupo-form label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    padding-right: 0;
+  }
+
+  div.contenido .tarjeta-registro input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .botones-registro {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-cancelar, .btn-crear {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+}

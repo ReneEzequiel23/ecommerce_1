@@ -61,3 +61,45 @@
   color: #eae1e3;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .tarjeta-login {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .tarjeta-login h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .grupo-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grupo-form label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    padding-right: 0;
+  }
+
+  .grupo-form input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .btn-iniciar {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .link-registro {
+    font-size: 16px;
+  }
+
+  .btn-regresar {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+}
