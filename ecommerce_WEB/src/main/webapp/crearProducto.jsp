@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="negocio.Categoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="es">
@@ -60,11 +62,18 @@
                     <div class="grupo-form">
                         <label for="categoria">Categoría</label>
                         <select name="categoria" id="categoria" required style="width: 100%; padding: 8px">
-                            <option value="1">Fantasía</option>
-                            <option value="2">Ciencia Ficción</option>
-                            <option value="3">Tecnología y Programación</option>
-                            <option value="4">Novela Histórica</option>
-                            <option value="5">Terror</option>
+                            <%
+                                // Recuperamos la lista que nos mandó el Servlet
+                                List<Categoria> listaCategoria = (List<Categoria>) request.getAttribute("listaCategoria");
+                                // Si la lista no es nula, la recorremos
+                                if (listaCategoria != null && !listaCategoria.isEmpty()) {
+                                    for (Categoria p : listaCategoria) {
+
+                            %>
+                            <option value="<%= p.getId()%>"><%= p.getNombre()%></option>
+                            <%        } // Fin del for
+                            } 
+                            %>
                         </select>
                     </div>
 

@@ -36,16 +36,9 @@ public class CategoriaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String accion = request.getParameter("accion");
-        if (accion == null || accion.isEmpty() || accion.equals("listar")) {
-            List<Categoria> lista = dao.listarTodos();
-            request.setAttribute("listaCategoria", lista);
-
-        }else if (accion.equals("eliminar")) {
-            int id = Integer.parseInt(request.getParameter("id"));
-            dao.eliminar(id);
-            response.sendRedirect("CategoriaServlet?accion=listar");
-        }
+        List<Categoria> lista = dao.listarTodos();
+        request.setAttribute("listaCategoria", lista);
+        request.getRequestDispatcher("crearProducto.jsp").forward(request, response);
     }
 
     /**

@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
-
+const API_CATALGOS = '/ecommerce_WEB/api/categorias';
 const API_URL = '/ecommerce_WEB/api/productos';
+let categoriaOriginal = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.getElementById('formularioCrear');
@@ -47,4 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+async function cargarCategoria() {
+    try {
+        const respuesta = await fetch(API_CATALGOS);
+
+        if (respuesta.ok) {
+            catalogoOriginal = await respuesta.json();
+            dibujarTabla(categoriaOriginal);
+        } else {
+            document.getElementById('categoria').innerHTML =
+                    '<option value="<%= p.getId()%>"><%= p.getNombre()%></option>';
+        }
+    } catch (error) {
+        console.error("Error al cargar el catálogo:", error);
+    }
+}
 
