@@ -54,7 +54,7 @@
 
                                 placeholder="500.00"
                                 step="0.01"
-                                class="input-texto hidden" style="padding: 8px" />
+                                class="input-texto disabled" style="padding: 8px" />
                         </div>
 
                         <div class="fila-filtro-inferior">
@@ -101,15 +101,15 @@
             checkbox.addEventListener("change", function () {
                 precio.forEach(div => {
                     if (this.checked) {
-                        div.classList.remove("hidden");
+                        div.classList.remove("disabled");
                     } else {
-                        div.classList.add("hidden");
+                        div.classList.add("disabled");
                     }
                 });
             });
         </script>
         <style>
-            .hidden{
+            .disabled{
                 display: none;
             }
 

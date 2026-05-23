@@ -72,7 +72,13 @@ public class LoginServlet extends HttpServlet {
 
             response.sendRedirect("administradorPantalla.jsp");
 
-        } else {
+        } else if(usuario != null && "cliente".equals(usuario.getRol())){
+            HttpSession session = request.getSession();
+            //session.setAttribute("clienteLogueado", usuario);
+
+            response.sendRedirect("PantallaAgregar.html");
+        }
+        else {
             request.setAttribute("errorLogin", "Credenciales incorrectas o no tienes permisos de administrador.");
 
             request.getRequestDispatcher("inicioDeSesion.jsp").forward(request, response);
