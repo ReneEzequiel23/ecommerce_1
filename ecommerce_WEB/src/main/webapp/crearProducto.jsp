@@ -38,7 +38,7 @@
             <div class="tarjeta-producto" style="background: #3d3d3d; padding: 30px; width: 600px">
                 <h2>Crear Nuevo Libro</h2>
 
-                <form action="#" method="POST">
+                <form id="formularioCrear" action="#" method="POST">
                     <div class="grupo-form">
                         <label for="nombre">Título del Libro</label>
                         <input type="text" id="nombre" name="nombre" required style="padding: 8px"/>
@@ -62,18 +62,7 @@
                     <div class="grupo-form">
                         <label for="categoria">Categoría</label>
                         <select name="categoria" id="categoria" required style="width: 100%; padding: 8px">
-                            <%
-                                // Recuperamos la lista que nos mandó el Servlet
-                                List<Categoria> listaCategoria = (List<Categoria>) request.getAttribute("listaCategoria");
-                                // Si la lista no es nula, la recorremos
-                                if (listaCategoria != null && !listaCategoria.isEmpty()) {
-                                    for (Categoria p : listaCategoria) {
-
-                            %>
-                            <option value="<%= p.getId()%>"><%= p.getNombre()%></option>
-                            <%        } // Fin del for
-                            } 
-                            %>
+                            <option value="">Cargando categorías...</option>
                         </select>
                     </div>
 

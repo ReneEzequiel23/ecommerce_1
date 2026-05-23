@@ -7,6 +7,8 @@ const API_URL = '/ecommerce_WEB/api/productos';
 let categoriaOriginal = [];
 
 document.addEventListener('DOMContentLoaded', () => {
+    cargarCategoria();
+    
     const formulario = document.getElementById('formularioCrear');
 
     // Verificamos que el formulario exista en la pantalla
@@ -50,18 +52,29 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function cargarCategoria() {
+    const selectCategoria = document.getElementById('categoria');
+    
     try {
         const respuesta = await fetch(API_CATALGOS);
 
         if (respuesta.ok) {
-            catalogoOriginal = await respuesta.json();
-            dibujarTabla(categoriaOriginal);
+            const categorias = await respuesta.json(); // Obtenemos el array de categorías
+            
+            // Limpiamos el select
+            selectCategoria.innerHTML = '<option value="">Seleccione una categoría</option>';
+
+            // Llenamos el select
+            categorias.forEach(cat => {
+                const opcion = document.createElement('option');
+                opcion.value = cat.id; 
+                opcion.textContent = cat.nombre; // Asegúrate que tu objeto Categoria tenga 'nombre'
+                selectCategoria.appendChild(opcion);
+            });
         } else {
-            document.getElementById('categoria').innerHTML =
-                    '<option value="<%= p.getId()%>"><%= p.getNombre()%></option>';
+            console.error("Error al cargar categorías:", respuesta.status);
+            selectCategoria.innerHTML = '<option value="">Error al cargar</option>';
         }
     } catch (error) {
-        console.error("Error al cargar el catálogo:", error);
+        console.error("Error de conexión:", error);
     }
 }
-
