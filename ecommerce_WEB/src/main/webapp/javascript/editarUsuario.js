@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
-const API_URL = '/ecommerce_WEB/api/clientes';
+const API_URL = '/ecommerce_WEB/api/usuarios';
 
 const parametrosURL = new URLSearchParams(window.location.search);
 const idUsuario = parametrosURL.get('id');

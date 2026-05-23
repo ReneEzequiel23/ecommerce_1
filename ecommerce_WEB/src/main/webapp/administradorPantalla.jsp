@@ -35,42 +35,42 @@
         <div class="frameOpc" style="background: #3d3d3d;">
             <h2 class="titulo-contenido">Gestionar</h2>
             <div class="grupo-form">
-                <button style="background-color: #505077; border: 2px solid #21213b;color: #eae1e3;"
+                <button style="background-color: #121226; border: 2px solid #6868a6;color: white;"
                     onclick="window.location.href = '/ecommerce_WEB/UsuarioServlet'"
                     class="btn-gestion">
                     Administrar Usuarios
                 </button>
             </div>
             <div class="grupo-form">
-                <button style="background-color: #505077; border: 2px solid #21213b;color: #eae1e3;"
+                <button style="background-color:  #121226; border: 2px solid #6868a6;color: white;"
                     onclick="window.location.href = 'gestionarCatalogoProductos.jsp'"
                     class="btn-gestion">
                     Catalogo de Productos
                 </button>
             </div>
             <div class="grupo-form">
-                <button style="background-color: #505077; border: 2px solid #21213b;color: #eae1e3;"
+                <button style="background-color:  #121226; border: 2px solid #6868a6;color: white;"
                     onclick="window.location.href = 'crearProducto.jsp'"
                     class="btn-gestion">
                     Crear Producto
                 </button>
             </div>
             <div class="grupo-form">
-                <button style="background-color: #505077; border: 2px solid #21213b;color: #eae1e3;"
+                <button style="background-color: #121226; border: 2px solid #6868a6;color: white;"
                     onclick="window.location.href = 'editarProducto.jsp'"
                     class="btn-gestion">
                     Editar Producto
                 </button>
             </div>
             <div class="grupo-form">
-                <button style="background-color: #505077; border: 2px solid #21213b;color: #eae1e3;"
+                <button style="background-color:  #121226; border: 2px solid #6868a6;color: white;"
                         onclick="window.location.href = '/ecommerce_WEB/PedidosSerlet'"
                     class="btn-gestion">
                     Pedidos
                 </button>
             </div>
             <div class="grupo-form">
-                <button style="background-color: #505077; border: 2px solid #21213b;color: #eae1e3;"
+                <button style="background-color:  #121226; border: 2px solid #6868a6;color: white;"
                     onclick="window.location.href = '/ecommerce_WEB/ResenaServlet'"
                     class="btn-gestion">
                     Reseñas

@@ -18,6 +18,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.util.List;
 import java.util.logging.Logger;
+import negocio.Categoria;
 import negocio.Usuario;
 import persistencia.UsuarioDAO;
 
@@ -37,7 +38,20 @@ public class UsuarioResource {
     public UsuarioResource() {
     }
     
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUsuario() {
+        logger.info("Listando todos los usuarios ");
+        List<Usuario> lista = dao.listarTodos();
 
+        if (lista != null && !lista.isEmpty()) {
+            return Response.ok(lista).build(); // 200 OK
+        } else {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("{\"mensaje\":\"No hay Usuario registradas.\"}")
+                    .build(); // 404 Not Found
+        }
+    }
     /**
      *
      * @param id
