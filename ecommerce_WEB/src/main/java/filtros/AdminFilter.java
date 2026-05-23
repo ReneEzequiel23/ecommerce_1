@@ -14,7 +14,9 @@ import java.io.IOException;
 
 // La anotación @WebFilter define qué URLs va a proteger este guardia.
 // Puedes listar páginas específicas o usar comodines (*).
-@WebFilter(urlPatterns = {"/administradorPantalla.jsp", "/productos_admin.jsp", "/pedidos_admin.jsp", "/ProductoServlet", "/PedidoServlet"})
+@WebFilter(urlPatterns = {"/administradorPantalla.jsp", "/UsuarioServlet", "/gestionarCatalogoProductos.jsp",
+    "/crearProducto.jsp","/editarProducto.jsp", "/ResenaServlet", "/PedidosSerlet","/administrarPedidos.jsp",
+    "/administrarUsuarios.jsp", "/crearCategoria.jsp","/gestionarReseñas.jsp","/ProductoServlet"})
 public class AdminFilter implements Filter {
 
     @Override
