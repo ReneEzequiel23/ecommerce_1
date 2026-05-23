@@ -28,7 +28,7 @@ public class CategoriaResource {
     private UriInfo context;
 
     private CategoriaDAO dao = new CategoriaDAO();
-    private static final Logger logger = Logger.getLogger(ProductosResource.class.getName());
+    private static final Logger logger = Logger.getLogger(CategoriaResource.class.getName());
 
     public CategoriaResource() {
     }

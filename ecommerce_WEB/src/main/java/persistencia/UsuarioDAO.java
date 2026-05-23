@@ -171,4 +171,26 @@ public class UsuarioDAO {
             System.out.println("Error al actualizar el Usuario: " + e.getMessage());
         }
     }
+    
+    public void actualizarRolActivo(Usuario p) {
+        String sql = "UPDATE Usuario SET rol=?,activo=? WHERE id=?";
+        boolean act = true;
+        if (p.isActivo() == true) {
+            act = false;
+            p.setActivo(act);
+        }
+
+        try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, p.getRol());
+            ps.setBoolean(2, p.isActivo());
+            ps.setInt(3, p.getId()); // El ID va al final para la cláusula WHERE
+
+            ps.executeUpdate();
+            System.out.println("Usuario actualizado correctamente.");
+
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar el Usuario: " + e.getMessage());
+        }
+    }
 }

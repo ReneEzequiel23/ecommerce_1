@@ -72,7 +72,7 @@
                                 <td class="celda-acciones">
                                     <button type="button" class="btn-estado"
                                             onclick="if (confirm('¿Seguro que deseas cambiarle el estado a este Usuario?'))
-                            window.location.href = 'UsuarioServlet?accion=editar&id=<%= p.getId()%>'"
+                            window.location.href = 'editarUsuarioAdmin.jsp?id=<%= p.getId()%>'"
                                             >Cambiar Estado</button>
                                     <button type="button" class="btn-eliminar"
                                             onclick="if (confirm('¿Seguro que deseas eliminar este Usuario?'))
