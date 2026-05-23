@@ -18,7 +18,7 @@ public class UsuarioDAO {
     // Método para autenticar exclusivamente a los administradores
     public Usuario autenticar(String correo, String contrasena) {
         Usuario admin = null;
-        String sql = "SELECT * FROM Usuario WHERE correo = ? AND contraseña = ? AND rol = 'admin'";
+        String sql = "SELECT * FROM Usuario WHERE correo = ? AND contraseña = ?";
 
         try (Connection con = ConexionBD.getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {

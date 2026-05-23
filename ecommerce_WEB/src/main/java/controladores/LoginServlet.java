@@ -74,12 +74,12 @@ public class LoginServlet extends HttpServlet {
 
         } else if(usuario != null && "cliente".equals(usuario.getRol())){
             HttpSession session = request.getSession();
-            //session.setAttribute("clienteLogueado", usuario);
+            session.setAttribute("clienteLogueado", usuario);
 
             response.sendRedirect("PantallaAgregar.html");
         }
         else {
-            request.setAttribute("errorLogin", "Credenciales incorrectas o no tienes permisos de administrador.");
+            request.setAttribute("errorLogin", "Datos incorrectos o no Tiens un Perfil Hecho.");
 
             request.getRequestDispatcher("inicioDeSesion.jsp").forward(request, response);
         }
