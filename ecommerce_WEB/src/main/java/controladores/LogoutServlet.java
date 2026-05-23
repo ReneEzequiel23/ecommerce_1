@@ -12,15 +12,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import negocio.Usuario;
-import persistencia.UsuarioDAO;
 
 /**
  *
- * @author ReneEzequiel23 & EdgarAcevedoAcosta
+ * @author edgar
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "LogoutServlet", urlPatterns = {"/LogoutServlet"})
+public class LogoutServlet extends HttpServlet {
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -34,14 +33,11 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         HttpSession session = request.getSession(false);
-
         if (session != null) {
             // Destruir la sesión
             session.invalidate();
         }
-
         // Redirigir de vuelta al login
         response.sendRedirect("inicioDeSesion.jsp");
     }
@@ -58,28 +54,8 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String correo = request.getParameter("correo");
-        String password = request.getParameter("contraseña");
-        UsuarioDAO dao = new UsuarioDAO();
-        Usuario usuario = dao.autenticar(correo, password);
-
-        if (usuario != null && "admin".equals(usuario.getRol())) {
-            HttpSession session = request.getSession();
-            session.setAttribute("adminLogueado", usuario);
-
-            response.sendRedirect("administradorPantalla.jsp");
-        } else if(usuario != null && "cliente".equals(usuario.getRol())){
-            HttpSession session = request.getSession();
-            session.setAttribute("clienteLogueado", usuario);
-
-            response.sendRedirect("PantallaAgregar.html");
-        }
-        else {
-            request.setAttribute("errorLogin", "Datos incorrectos o no Tiens un Perfil Hecho.");
-
-            request.getRequestDispatcher("inicioDeSesion.jsp").forward(request, response);
-        }
     }
+
     /**
      * Returns a short description of the servlet.
      *
