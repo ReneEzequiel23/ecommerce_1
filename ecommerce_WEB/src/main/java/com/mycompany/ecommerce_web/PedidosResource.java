@@ -13,11 +13,14 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.util.logging.Logger;
 import negocio.SolicitudPedido;
+import negocio.Usuario;
 import persistencia.PedidoDAO;
 
 /**
@@ -31,6 +34,10 @@ public class PedidosResource {
 
     @Context
     private UriInfo context;
+
+    @Context
+    private HttpServletRequest request;
+
     private static final Logger logger = Logger.getLogger(PedidosResource.class.getName());
     private PedidoDAO dao = new PedidoDAO();
 
@@ -49,6 +56,19 @@ public class PedidosResource {
         if (solicitud.getDetalles() == null || solicitud.getDetalles().isEmpty()) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("{\"mensaje\":\"El carrito está vacío.\"}")
+                    .build();
+        }
+
+        HttpSession sesion = request.getSession();
+        Usuario usuarioActivo = (Usuario) sesion.getAttribute("clienteLogueado");
+
+        if (usuarioActivo != null) {
+            // Le asignamos el ID REAL del cliente al pedido
+            solicitud.setUsuarioId(usuarioActivo.getId());
+        } else {
+            // Si intenta comprar sin iniciar sesión, lo bloqueamos
+            return Response.status(Response.Status.UNAUTHORIZED)
+                    .entity("{\"mensaje\":\"Debes iniciar sesión para procesar un pedido.\"}")
                     .build();
         }
 

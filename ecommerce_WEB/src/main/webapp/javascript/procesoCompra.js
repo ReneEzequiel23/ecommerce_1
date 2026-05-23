@@ -1,5 +1,4 @@
 const API_PRODUCTOS = '/ecommerce_WEB/api/productos';
-
 document.addEventListener('DOMContentLoaded', () => {
     cargarResumenPedido();
     cargarDirecciones();
@@ -9,7 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
 async function cargarResumenPedido() {
     const cuerpoResumen = document.getElementById('cuerpoResumen');
     const inputCostoFinal = document.getElementById('costoFinal');
-    let carrito = JSON.parse(localStorage.getItem('carritoApp')) || [];
+
+    let carrito = JSON.parse(localStorage.getItem('carritoApp'));
+
+    if (!carrito) {
+        carrito = [];
+    }
 
     if (carrito.length === 0) {
         alert("Tu carrito está vacío. Serás redirigido al catálogo para que agregues libros.");
@@ -17,7 +21,7 @@ async function cargarResumenPedido() {
         return;
     }
 
-    cuerpoResumen.innerHTML = ''; 
+    cuerpoResumen.innerHTML = '';
     let granTotal = 0;
 
     for (let item of carrito) {
@@ -41,24 +45,30 @@ async function cargarResumenPedido() {
             console.error("Error al cargar producto:", error);
         }
     }
-    
+
     inputCostoFinal.value = `$${granTotal.toFixed(2)}`;
 }
 
 async function cargarDirecciones() {
     const selectDireccion = document.getElementById('direccionSelect');
-    if (!selectDireccion) return; 
+    if (!selectDireccion)
+        return;
 
     selectDireccion.innerHTML = '<option disabled selected>Cargando direcciones...</option>';
 
     try {
-        const respuesta = await fetch('/ecommerce_WEB/api/direcciones/usuario/2');
-        
+        if (ID_USUARIO_ACTIVO === null) {
+            selectDireccion.innerHTML = '<option disabled>Inicia sesión para ver tus direcciones</option>';
+            return;
+        }
+
+        const respuesta = await fetch('/ecommerce_WEB/api/direcciones/usuario/' + ID_USUARIO_ACTIVO);
+
         if (respuesta.ok) {
             const direcciones = await respuesta.json();
-            selectDireccion.innerHTML = ''; 
-            
-            if(direcciones.length === 0) {
+            selectDireccion.innerHTML = '';
+
+            if (direcciones.length === 0) {
                 selectDireccion.innerHTML = '<option disabled>No tienes direcciones registradas</option>';
             } else {
                 direcciones.forEach(dir => {
@@ -80,39 +90,41 @@ async function cargarDirecciones() {
 
 function configurarBotonPago() {
     const btnConfirmar = document.getElementById('btnConfirmarPedido');
-    if (!btnConfirmar) return;
+    if (!btnConfirmar)
+        return;
 
     btnConfirmar.addEventListener('click', async () => {
         const metodoPago = document.querySelector('input[name="metodo_pago"]:checked');
         const direccionId = document.getElementById('direccionSelect').value;
-        
+
         if (!metodoPago) {
             alert("Por favor, selecciona un método de pago.");
             return;
         }
 
         const carrito = JSON.parse(localStorage.getItem('carritoApp'));
-        
+
         const nuevoPedido = {
             metodoPago: metodoPago.value,
-            direccionId: parseInt(direccionId), 
-            detalles: carrito 
+            direccionId: parseInt(direccionId),
+            detalles: carrito
         };
 
         btnConfirmar.disabled = true;
         btnConfirmar.innerText = "Procesando pago...";
-        
+
         try {
             const respuesta = await fetch('/ecommerce_WEB/api/pedidos', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {'Content-Type': 'application/json'},
+                credentials: 'same-origin',
                 body: JSON.stringify(nuevoPedido)
             });
 
             if (respuesta.status === 201) {
                 alert("¡Pago procesado con éxito! Tu pedido ha sido confirmado.");
-                localStorage.removeItem('carritoApp'); 
-                window.location.href = 'catalogoProductos.jsp'; 
+                localStorage.removeItem('carritoApp');
+                window.location.href = 'catalogoProductos.jsp';
             } else {
                 const errorInfo = await respuesta.json();
                 alert(`Hubo un problema: ${errorInfo.mensaje}`);

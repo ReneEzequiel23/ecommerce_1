@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import negocio.Direccion;
 import utilidades.ConexionBD;
+
 /**
  * REST Web Service
  *
@@ -40,45 +41,35 @@ public class DireccionesResource {
     public DireccionesResource() {
     }
 
-    @GET
+@GET
     @Path("/usuario/{usuarioId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getDireccionesPorUsuario(@PathParam("usuarioId") int usuarioId) {
+    public List<Direccion> getDireccionesPorUsuario(@PathParam("usuarioId") int usuarioId) {
         List<Direccion> lista = new ArrayList<>();
-        // Ajustamos la consulta para traer todos los campos que pide tu clase
+        // Consulta exacta basada en tu tabla (id, calle, ciudad, estado, codigo_postal, usuario_id)
         String sql = "SELECT id, calle, ciudad, estado, codigo_postal, usuario_id FROM Direccion WHERE usuario_id = ?";
         
-        try (Connection con = utilidades.ConexionBD.getConexion(); 
+        try (Connection con = ConexionBD.getConexion(); 
              PreparedStatement ps = con.prepareStatement(sql)) {
             
             ps.setInt(1, usuarioId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    // Usamos el constructor completo de tu clase Direccion.java
+                    // Usamos el constructor que tienes en Direccion.java
                     lista.add(new Direccion(
                         rs.getInt("id"), 
                         rs.getString("calle"), 
                         rs.getString("ciudad"), 
                         rs.getString("estado"), 
-                        rs.getString("codigo_postal"),
+                        rs.getString("codigo_postal"), 
                         rs.getInt("usuario_id")
                     ));
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            e.printStackTrace(); // Esto imprimirá el error real en la consola de NetBeans
         }
-        
-        return Response.ok(lista).build();
+        return lista;
     }
 
-    /**
-     * PUT method for updating or creating an instance of DireccionesResource
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_XML)
-    public void putXml(Direccion content) {
-    }
 }

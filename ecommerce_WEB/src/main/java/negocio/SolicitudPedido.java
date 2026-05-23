@@ -14,6 +14,7 @@ public class SolicitudPedido {
     private String metodoPago;
     private List<ProductoCarrito> detalles;
     private int direccionId;
+    private int usuarioId;
 
     public SolicitudPedido() {
     }
@@ -41,5 +42,14 @@ public class SolicitudPedido {
     public void setDireccionId(int direccionId) {
         this.direccionId = direccionId;
     }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+    
     
 }

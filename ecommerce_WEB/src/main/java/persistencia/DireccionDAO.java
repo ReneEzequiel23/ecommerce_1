@@ -18,6 +18,7 @@ import utilidades.ConexionBD;
  * @author edgar
  */
 public class DireccionDAO {
+    
     public void eliminar(int id) {
         String sql = "DELETE FROM Direccion WHERE id = ?";
         try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
@@ -40,20 +41,20 @@ public class DireccionDAO {
                         rs.getString("calle"),
                         rs.getString("ciudad"),
                         rs.getString("estado"),
-                        rs.getString("codigo"),
-                        rs.getInt("rol")
+                        rs.getString("codigo_postal"), // Corregido: codigo_postal
+                        rs.getInt("usuario_id")        // Corregido: minúsculas
                 );
 
                 listaDireccion.add(p);
             }
         } catch (SQLException e) {
-            System.out.println("Error al listar los Direccion: " + e.getMessage());
+            System.out.println("Error al listar las Direcciones: " + e.getMessage());
         }
 
         return listaDireccion;
     }
 
-    // Método para OBTENER un Direccion por su id
+    // Método para OBTENER una Direccion por su id
     public Direccion obtenerPorId(int id) {
         Direccion p = null;
         String sql = "SELECT * FROM Direccion WHERE id = ?";
@@ -61,12 +62,13 @@ public class DireccionDAO {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    p = new Direccion(rs.getInt("id"),
+                    p = new Direccion(
+                            rs.getInt("id"),
                             rs.getString("calle"),
                             rs.getString("ciudad"),
                             rs.getString("estado"),
-                            rs.getString("codigo"),
-                            rs.getInt("id")
+                            rs.getString("codigo_postal"), // Corregido: codigo_postal
+                            rs.getInt("usuario_id")        // Corregido: minúsculas
                     );
                 }
             }
@@ -76,9 +78,10 @@ public class DireccionDAO {
         return p;
     }
 
-    // Método para INSERTAR un nuevo Direccion
+    // Método para INSERTAR una nueva Direccion
     public void insertar(Direccion p) {
-        String sql = "INSERT INTO Direccion (calle, ciudad, estado, codigo, Usuario_id) VALUES (?, ?, ?, ?, ?)";
+        // Corregido: codigo_postal y usuario_id en la consulta SQL
+        String sql = "INSERT INTO Direccion (calle, ciudad, estado, codigo_postal, usuario_id) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -86,34 +89,35 @@ public class DireccionDAO {
             ps.setString(1, p.getCalle());
             ps.setString(2, p.getCiudad());
             ps.setString(3, p.getEstado());
-            ps.setString(4, p.getCodigo());
-            ps.setInt(5, p.getIdUsuario());
+            ps.setString(4, p.getCodigo_postal());
+            ps.setInt(5, p.getUsuario_id());
 
             ps.executeUpdate(); // Ejecutamos la inserción
-            System.out.println("Direccion insertado correctamente.");
+            System.out.println("Direccion insertada correctamente.");
 
         } catch (SQLException e) {
-            System.out.println("Error al insertar el Direccion: " + e.getMessage());
+            System.out.println("Error al insertar la Direccion: " + e.getMessage());
         }
     }
 
-    // Método para ACTUALIZAR un usuario existente
+    // Método para ACTUALIZAR una Direccion existente
     public void actualizar(Direccion p) {
-        String sql = "UPDATE Direccion SET calle=?, ciudad=?,estado=?,codigo=?,usuario_id=? WHERE id=?";
+        // Corregido: codigo_postal y usuario_id en la consulta SQL
+        String sql = "UPDATE Direccion SET calle=?, ciudad=?, estado=?, codigo_postal=?, usuario_id=? WHERE id=?";
         try (Connection con = ConexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, p.getCalle());
             ps.setString(2, p.getCiudad());
             ps.setString(3, p.getEstado());
-            ps.setString(4, p.getCodigo());
-            ps.setInt(5, p.getIdUsuario());
-            ps.setInt(6, p.getId()); // El ID va al final para la cláusula WHERE
+            ps.setString(4, p.getCodigo_postal());
+            ps.setInt(5, p.getUsuario_id());
+            ps.setInt(6, p.getId());
 
             ps.executeUpdate();
-            System.out.println("Direccion actualizado correctamente.");
+            System.out.println("Direccion actualizada correctamente.");
 
         } catch (SQLException e) {
-            System.out.println("Error al actualizar el Direccion: " + e.getMessage());
+            System.out.println("Error al actualizar la Direccion: " + e.getMessage());
         }
     }
 }

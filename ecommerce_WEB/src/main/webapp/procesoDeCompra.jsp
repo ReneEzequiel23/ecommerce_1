@@ -109,8 +109,10 @@
                 </div>
             </div>
         </main>
+        <script>
+            const ID_USUARIO_ACTIVO = <%= (session.getAttribute("clienteLogueado") != null) ? ((negocio.Usuario)session.getAttribute("clienteLogueado")).getId() : "null" %>;
+        </script>
         <script src="javascript/MenuScript.js"></script>
         <script src="javascript/procesoCompra.js"></script>
-        <script src="javascript/procesoCompra.js?v=10"></script>
     </body>
 </html>

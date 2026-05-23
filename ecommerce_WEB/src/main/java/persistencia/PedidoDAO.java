@@ -105,12 +105,11 @@ public class PedidoDAO {
         
         try {
             con = ConexionBD.getConexion();
-            // 1. Apagamos el auto-guardado para iniciar la TRANSACCIÓN
             con.setAutoCommit(false); 
 
             double totalCalculado = 0;
 
-            // 2. Calcular el total real consultando los precios actuales de la base de datos
+           //calcular el total real consultando los precios actuales de la base de datos
             String sqlPrecio = "SELECT precio FROM Producto WHERE id = ?";
             try (PreparedStatement psPrecio = con.prepareStatement(sqlPrecio)) {
                 for (ProductoCarrito item : solicitud.getDetalles()) {
@@ -125,14 +124,14 @@ public class PedidoDAO {
                 }
             }
 
-            // 3. Insertar el Pedido maestro (Simulando Usuario 2, Dirección 1)
+            //Simulando Usuario 2)
             int pedidoIdGenerado = 0;
-            // ¡AQUÍ ESTÁ LA MAGIA! Cambiamos el 1 por un '?'
-            String sqlPedido = "INSERT INTO Pedido (estado, total, usuario_id, direccion_id) VALUES ('Pendiente', ?, 2, ?)";
+            String sqlPedido = "INSERT INTO Pedido (estado, total, usuario_id, direccion_id) VALUES ('Pendiente', ?, ?, ?)";
             
             try (PreparedStatement psPedido = con.prepareStatement(sqlPedido, Statement.RETURN_GENERATED_KEYS)) {
                 psPedido.setDouble(1, totalCalculado);
-                psPedido.setInt(2, solicitud.getDireccionId()); // Ahora sí tiene dónde entrar
+                psPedido.setInt(2, solicitud.getUsuarioId());
+                psPedido.setInt(3, solicitud.getDireccionId());
                 psPedido.executeUpdate();
                 
                 // Recuperamos el ID autoincrementable que MySQL le asignó al pedido
@@ -145,7 +144,7 @@ public class PedidoDAO {
                 }
             }
 
-            // 4. Insertar los renglones en Detalle_Pedido y restar el Stock en Producto
+            // restar el Stock en Producto
             String sqlDetalle = "INSERT INTO detalle_Pedido (cantidad, precio_unidad, pedido_id, producto_id) VALUES (?, ?, ?, ?)";
             String sqlStock = "UPDATE Producto SET existencia = existencia - ? WHERE id = ?";
             
@@ -175,15 +174,13 @@ public class PedidoDAO {
                 }
             }
 
-            // 5. Insertar el recibo en la tabla Pago
+            // insertar el recibo en la tabla Pago
             String sqlPago = "INSERT INTO Pago (monto, estado, pedido_id) VALUES (?, 'Completado', ?)";
             try (PreparedStatement psPago = con.prepareStatement(sqlPago)) {
                 psPago.setDouble(1, totalCalculado);
                 psPago.setInt(2, pedidoIdGenerado);
                 psPago.executeUpdate();
             }
-
-            // 6. Si todo salió perfecto hasta aquí, guardamos permanentemente (COMMIT)
             con.commit();
             return true;
 
