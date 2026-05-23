@@ -13,7 +13,6 @@
         <title>Registro de usuario</title>
         <link rel="stylesheet" href="css/PantallaOrigen.css" />
         <link rel="stylesheet" href="css/stylesInicioSesion.css" />
-        <link rel="stylesheet" href="css/direccionStyle.css" />
     </head>
     <body>
         <!-- Registro de usuario -->

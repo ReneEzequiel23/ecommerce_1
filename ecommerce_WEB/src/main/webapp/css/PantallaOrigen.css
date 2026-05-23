@@ -31,7 +31,7 @@ header {
 /* Sidebar */
 .sidebar {
     background-color: #181818;
-    color: #fff;
+    color: white;
     width: 220px;
     height: calc(100vh - 60px); /* resta la altura del header */
     position: fixed;
@@ -121,4 +121,62 @@ main {
     padding: 20px;
     text-align: center;
     transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 50px;
+        padding: 0 10px;
+    }
+
+    /* Sidebar más angosto y oculto por defecto */
+    .sidebar {
+        width: 180px;
+        height: calc(100vh - 50px);
+        transform: translateX(-100%); /* oculto inicialmente */
+        position: fixed;
+        z-index: 999;
+    }
+
+    /* Botón hamburguesa más grande y visible */
+    #toggleSidebar {
+        font-size: 28px;
+        margin: 5px;
+    }
+
+    /* Perfil más pequeño */
+    .profile img {
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+    }
+
+    /* Dropdown ocupa todo el ancho en móvil */
+    .dropdown {
+        width: 100%;
+        left: 0;
+        top: 50px;
+    }
+
+    /* Contenido principal ocupa todo el ancho */
+    main {
+        margin-left: 0; /* no deja espacio para sidebar */
+        margin-top: 60px;
+        padding: 15px;
+        text-align: left;
+    }
+
+    h2 {
+        font-size: 1.1em;
+    }
+    .subtitulo {
+        font-size: 1em;
+    }
+
+    /* Footer más compacto */
+    .footer {
+        height: auto;
+        padding: 8px;
+        font-size: 0.9em;
+    }
 }

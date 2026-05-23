@@ -77,3 +77,62 @@
   cursor: pointer;
   border-radius: 4px;
 }
+
+@media (max-width: 768px) {
+    .tabla-carrito, .tabla-carrito thead, .tabla-carrito tbody,
+    .tabla-carrito th, .tabla-carrito td, .tabla-carrito tr {
+        display: block;
+        width: 100%;
+    }
+
+    .tabla-carrito tr {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+        background-color: #fff;
+        padding: 10px;
+    }
+
+    .tabla-carrito td {
+        border: none;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .tabla-carrito td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .btn-eliminar {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .seccion-pago {
+        align-items: center;
+    }
+
+    .fila-total {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .area-carrito input.input-total {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .btn-pagar {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+    }
+}

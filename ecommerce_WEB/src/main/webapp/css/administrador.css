@@ -32,3 +32,32 @@ main {
   font-size: 18px;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .frameOpc {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .frameOpc h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .grupo-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .grupo-form label {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    .btn-gestion {
+        width: 100%;
+        font-size: 16px;
+        height: auto;
+        padding: 12px;
+    }
+}

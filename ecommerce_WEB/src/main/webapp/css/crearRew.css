@@ -81,3 +81,123 @@ div.contenido .tarjeta-reseña input {
   cursor: pointer;
   width: 35%;
 }
+
+div.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+/* Tarjeta del formulario de reseña */
+.tarjeta-reseña {
+    background-color: #f7f7f7;
+    border: 2px solid #ddd;
+    padding: 40px;
+    width: 600px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.tarjeta-reseña h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* Inputs y labels */
+.grupo-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.grupo-form label {
+    flex: 1;
+    text-align: left;
+    font-size: 16px;
+    padding-right: 10px;
+}
+
+div.contenido .tarjeta-reseña input,
+.grupo-form textarea {
+    flex: 1.5;
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #888;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.grupo-form textarea {
+    height: 90px;
+    resize: vertical;
+}
+
+/* Botones */
+.botones-reseña {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.btn-cancelar, .btn-crear {
+    padding: 10px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 35%;
+    border-radius: 4px;
+}
+
+.btn-cancelar {
+    background-color: #f47b62;
+    border: 2px solid #c95138;
+}
+
+.btn-crear {
+    background-color: #7ce086;
+    border: 2px solid #4bb856;
+}
+
+/* 🔹 Responsividad para celulares */
+@media (max-width: 768px) {
+    .tarjeta-reseña {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .tarjeta-reseña h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .grupo-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .grupo-form label {
+        margin-bottom: 5px;
+        font-size: 14px;
+        padding-right: 0;
+    }
+
+    div.contenido .tarjeta-reseña input,
+    .grupo-form textarea {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .botones-reseña {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-cancelar, .btn-crear {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+    }
+}

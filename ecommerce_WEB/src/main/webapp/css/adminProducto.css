@@ -73,3 +73,40 @@ div.contenido .tarjeta-producto input {
   margin-top: 10px;
   position: relative;
 }
+
+
+@media (max-width: 768px) {
+    div.contenido {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .tarjeta-producto {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .grupo-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .grupo-form label {
+        margin-bottom: 5px;
+        padding-right: 0;
+        font-size: 14px;
+    }
+
+    div.contenido .tarjeta-producto input,
+    .grupo-form textarea {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .btn-crear, .btn-actualizar {
+        width: 100%;
+        font-size: 16px;
+        left: 0;
+    }
+}

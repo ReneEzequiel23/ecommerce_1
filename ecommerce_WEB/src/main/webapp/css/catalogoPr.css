@@ -133,3 +133,84 @@ div.contenido .caja-filtros input {
   cursor: pointer;
   border-radius: 3px;
 }
+
+@media (max-width: 768px) {
+    .caja-filtros {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .caja-filtros h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .fila-filtro,
+    .fila-filtro-medio,
+    .fila-filtro-inferior {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .fila-filtro label,
+    .fila-filtro-medio label,
+    .fila-filtro-inferior label {
+        margin-bottom: 5px;
+        font-size: 14px;
+        padding-right: 0;
+    }
+
+    .btn-filtrar {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    /* Tabla como tarjetas */
+    .tabla-productos,
+    .tabla-productos thead,
+    .tabla-productos tbody,
+    .tabla-productos th,
+    .tabla-productos td,
+    .tabla-productos tr {
+        display: block;
+        width: 100%;
+    }
+
+    .tabla-productos tr {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+        background-color: #fff;
+        padding: 10px;
+    }
+
+    .tabla-productos td {
+        border: none;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .tabla-productos td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .celda-acciones {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .btn-agregar,
+    .btn-resena,
+    .btn-detalles {
+        width: 100%;
+        max-width: 200px;
+        font-size: 16px;
+    }
+}
